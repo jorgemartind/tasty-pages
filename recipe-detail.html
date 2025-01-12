@@ -9,7 +9,7 @@
 </head>
 <body class="bg-gray-50">
     <div id="app" class="container mx-auto px-4 py-8 max-w-4xl">
-        <!-- Botón Volver -->
+        <!-- Back Button -->
         <a href="index.html" class="inline-flex items-center mb-6 text-blue-600 hover:text-blue-800">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
@@ -17,32 +17,35 @@
             Volver a recetas
         </a>
 
+        <!-- Loading State -->
         <div v-if="loading" class="text-center py-10">
             <p class="text-gray-600">Cargando receta...</p>
         </div>
 
+        <!-- Error State -->
         <div v-else-if="error" class="text-center py-10">
             <p class="text-red-600">{{ error }}</p>
         </div>
 
+        <!-- Empty State -->
         <div v-else-if="!recipe" class="text-center py-10">
             <p class="text-red-600">No se encontró la receta</p>
         </div>
 
         <div v-else class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <!-- Imagen de la receta -->
+            <!-- Recipe Image -->
             <img :src="recipe.image_url" :alt="recipe.name" class="w-full h-96 object-cover">
             
-            <!-- Contenido principal -->
+            <!-- Main Content -->
             <div class="p-6">
-                <!-- Encabezado -->
+                <!-- Header -->
                 <div class="mb-6">
                     <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ recipe.name }}</h1>
                     <p class="text-gray-600">{{ recipe.description }}</p>
                 </div>
 
-                <!-- Metadatos -->
-                <div class="grid grid-cols-3 gap-4 mb-6">
+                <!-- Metadata -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
                     <div class="text-center p-3 bg-gray-50 rounded-lg">
                         <p class="text-gray-500">Tiempo</p>
                         <p class="font-semibold">{{ recipe.time }}</p>
@@ -51,7 +54,7 @@
                         <p class="text-gray-500">Porciones</p>
                         <p class="font-semibold">{{ recipe.servings }}</p>
                     </div>
-                    <div class="text-center p-3 bg-gray-50 rounded-lg">
+                    <div class="text-center p-3 bg-gray-50 rounded-lg hidden md:block">
                         <p class="text-gray-500">Fecha</p>
                         <p class="font-semibold">{{ formattedDate }}</p>
                     </div>
@@ -67,7 +70,7 @@
                     </div>
                 </div>
 
-                <!-- Ingredientes -->
+                <!-- Ingredients -->
                 <div class="mb-6">
                     <h2 class="text-2xl font-bold mb-4">Ingredientes</h2>
                     <ul class="list-disc list-inside space-y-2">
@@ -78,7 +81,7 @@
                     </ul>
                 </div>
 
-                <!-- Instrucciones -->
+                <!-- Instructions -->
                 <div class="mb-6">
                     <h2 class="text-2xl font-bold mb-4">Instrucciones</h2>
                     <ol class="list-decimal list-inside space-y-3">
@@ -89,7 +92,7 @@
                     </ol>
                 </div>
 
-                <!-- Enlaces relacionados -->
+                <!-- Related Links -->
                 <div v-if="recipe.video_url || recipe.url" class="border-t pt-6">
                     <h2 class="text-xl font-bold mb-4">Enlaces relacionados</h2>
                     <div class="flex flex-wrap gap-3">
