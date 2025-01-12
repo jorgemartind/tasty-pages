@@ -21,47 +21,53 @@
 <body class="bg-gray-50">
     <div id="app">
         <!-- Enhanced Header -->
-        <header class="gradient-background text-white mb-8">
-            <div class="container mx-auto px-4">
-                <!-- Navigation Bar -->
-                <nav class="flex justify-between items-center py-4">
-                    <div class="flex items-center space-x-3">
-                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                        </svg>
-                        <span class="text-2xl font-bold">TastyPages</span>
-                    </div>
-                    <div class="hidden md:flex space-x-6">
-                        <a href="#" class="text-white hover:text-gray-200 transition-colors">Inicio</a>
-                        <a href="#" class="text-white hover:text-gray-200 transition-colors">Categorías</a>
-                        <a href="#" class="text-white hover:text-gray-200 transition-colors">Populares</a>
-                        <a href="#" class="text-white hover:text-gray-200 transition-colors">Nuevas</a>
-                    </div>
-                </nav>
-
-                <!-- Hero Section -->
-                <div class="py-8 text-center">
-                    <h1 class="text-5xl font-bold mb-4 text-white">Descubre el Arte de Cocinar</h1>
-                    <p class="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
-                        Explora nuestra colección de deliciosas recetas, desde platos tradicionales hasta creaciones innovadoras
-                    </p>
-                    <!-- Statistics -->
-                    <div class="flex justify-center space-x-8 mb-4">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold">{{ recipes.length }}</div>
-                            <div class="text-gray-200">Recetas</div>
+        <header class="gradient-background text-white">
+            <!-- Fixed Navigation Bar -->
+            <nav class="fixed top-0 left-0 right-0 z-50 gradient-background shadow-md">
+                <div class="container mx-auto px-4">
+                    <div class="flex justify-between items-center py-4">
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                            <span class="text-2xl font-bold">TastyPages</span>
                         </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold">{{ uniqueCategories.length }}</div>
-                            <div class="text-gray-200">Categorías</div>
+                        <div class="hidden md:flex space-x-6">
+                            <a href="#" class="text-white hover:text-gray-200 transition-colors">Inicio</a>
+                            <a href="#" class="text-white hover:text-gray-200 transition-colors">Categorías</a>
+                            <a href="#" class="text-white hover:text-gray-200 transition-colors">Populares</a>
+                            <a href="#" class="text-white hover:text-gray-200 transition-colors">Nuevas</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Hero Section with padding for fixed nav -->
+            <div class="pt-20">
+                <div class="container mx-auto px-4">
+                    <div class="py-8 text-center">
+                        <h1 class="text-5xl font-bold mb-4 text-white">Descubre el Arte de Cocinar</h1>
+                        <p class="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
+                            Explora nuestra colección de deliciosas recetas, desde platos tradicionales hasta creaciones innovadoras
+                        </p>
+                        <!-- Statistics -->
+                        <div class="flex justify-center space-x-8 mb-4">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">{{ recipes.length }}</div>
+                                <div class="text-gray-200">Recetas</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">{{ uniqueCategories.length }}</div>
+                                <div class="text-gray-200">Categorías</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
 
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 pt-8">
             <!-- Enhanced Search -->
             <div class="max-w-2xl mx-auto mb-12">
                 <div class="relative">
@@ -109,7 +115,7 @@
                 <div v-for="recipe in filteredRecipes" 
                      :key="recipe.id"
                      class="bg-white rounded-lg shadow-lg overflow-hidden card-hover"
-                     :class="{ 'mb-16': recipe === filteredRecipes[filteredRecipes.length - 1] }">
+                     :class="{ 'mb-16 md:mb-0': recipe === filteredRecipes[filteredRecipes.length - 1] }">
                     <a :href="'recipe-detail.html?id=' + recipe.id" class="block">
                         <!-- Card Image -->
                         <img :src="recipe.image_url" 
@@ -141,10 +147,11 @@
 
                             <!-- Tags -->
                             <div class="mt-4 flex flex-wrap gap-2">
-                                <span v-for="tag in recipe.tags" 
-                                      class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
+                                <a v-for="tag in recipe.tags" 
+                                   :href="'?tag=' + encodeURIComponent(tag)"
+                                   class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full hover:bg-blue-200 transition-colors">
                                     {{ tag }}
-                                </span>
+                                </a>
                             </div>
                         </div>
                     </a>
@@ -186,6 +193,15 @@
                     return Array.from(categories)
                 }
             },
+            methods: {
+                initializeFromURL() {
+                    const urlParams = new URLSearchParams(window.location.search)
+                    const tag = urlParams.get('tag')
+                    if (tag) {
+                        this.searchQuery = decodeURIComponent(tag)
+                    }
+                }
+            },
             async mounted() {
                 try {
                     const response = await fetch('recipes.json')
@@ -194,6 +210,7 @@
                     }
                     this.recipes = await response.json()
                     this.loading = false
+                    this.initializeFromURL()
                 } catch (err) {
                     this.error = 'Error al cargar las recetas: ' + err.message
                     this.loading = false
