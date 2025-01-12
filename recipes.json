@@ -7,7 +7,7 @@
     "time": "25 minutes",
     "servings": 4,
     "tags": ["comfort food", "italian cuisine"],
-    "url": "https://example.com/recipes/spaghetti-carbonara",
+    "source_url": "https://example.com/recipes/spaghetti-carbonara",
     "image_url": "https://www.pequerecetas.com/wp-content/uploads/2010/10/pasta-carbonara-espaguetis-receta.jpg",
     "video_url": "https://example.com/videos/spaghetti-carbonara.mp4",
     "ingredients": [
@@ -37,7 +37,7 @@
     "time": "30 minutes",
     "servings": 4,
     "tags": ["comfort food", "italian cuisine"],
-    "url": "https://example.com/recipes/chicken-alfredo",
+    "source_url": "https://example.com/recipes/chicken-alfredo",
     "image_url": "https://www.budgetbytes.com/wp-content/uploads/2022/07/Chicken-Alfredo-side.jpg",
     "video_url": "https://example.com/videos/chicken-alfredo.mp4",
     "ingredients": [
@@ -66,7 +66,7 @@
     "time": "20 minutes",
     "servings": 2,
     "tags": ["healthy", "asian cuisine"],
-    "url": "https://example.com/recipes/vegetable-stir-fry",
+    "source_url": "https://example.com/recipes/vegetable-stir-fry",
     "image_url": "https://therecipecritic.com/wp-content/uploads/2019/08/vegetable_stir_fry.jpg",
     "video_url": "https://example.com/videos/vegetable-stir-fry.mp4",
     "ingredients": [
@@ -95,7 +95,7 @@
     "time": "48 horas",
     "servings": 10,
     "tags": ["pescado", "aperitivo", "cocina casera"],
-    "url": "https://lacocinadefrabisa.lavozdegalicia.es/salmon-ahumado-casero-muy-facil-video/",
+    "source_url": "https://lacocinadefrabisa.lavozdegalicia.es/salmon-ahumado-casero-muy-facil-video/",
     "image_url": "https://lacocinadefrabisa.lavozdegalicia.es/wp-content/uploads/2024/07/salmon-ahumado.jpg",
     "video_url": "https://www.youtube.com/watch?v=V6D4LAFWtzk",
     "ingredients": [
