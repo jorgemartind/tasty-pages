@@ -17,6 +17,15 @@
         transform: translateY(-5px);
       }
 
+      .nav-shadow {
+        transition: box-shadow 0.3s ease;
+      }
+
+      .nav-shadow.scrolled {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
       @keyframes countAnimation {
         0% {
           opacity: 0;
@@ -58,7 +67,8 @@
       <header class="gradient-background text-white">
         <!-- Fixed Navigation Bar -->
         <nav
-          class="fixed top-0 left-0 right-0 z-50 gradient-background shadow-md"
+          class="fixed top-0 left-0 right-0 z-50 gradient-background nav-shadow"
+          :class="{ 'scrolled': isScrolled }"
         >
           <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
@@ -77,28 +87,6 @@
                   ></path>
                 </svg>
                 <span class="text-2xl font-bold">TastyPages</span>
-              </div>
-              <div class="hidden md:flex space-x-6">
-                <a
-                  href="#"
-                  class="text-white hover:text-amber-100 transition-colors"
-                  >Inicio</a
-                >
-                <a
-                  href="#"
-                  class="text-white hover:text-amber-100 transition-colors"
-                  >Categorías</a
-                >
-                <a
-                  href="#"
-                  class="text-white hover:text-amber-100 transition-colors"
-                  >Populares</a
-                >
-                <a
-                  href="#"
-                  class="text-white hover:text-amber-100 transition-colors"
-                  >Nuevas</a
-                >
               </div>
             </div>
           </div>
@@ -199,7 +187,7 @@
         </div>
       </header>
 
-      <div class="container mx-auto px-4 pt-8">
+      <div class="container mx-auto px-4 py-8">
         <!-- Loading State -->
         <div v-if="loading" class="text-center py-10">
           <p class="text-gray-600">Cargando recetas...</p>
@@ -316,6 +304,7 @@
             loading: true,
             error: null,
             searchQuery: "",
+            isScrolled: false,
           };
         },
         computed: {
@@ -358,20 +347,30 @@
               this.searchQuery = decodeURIComponent(tag);
             }
           },
-        },
-        async mounted() {
-          try {
-            const response = await fetch("recipes.json");
-            if (!response.ok) {
-              throw new Error("No se pudieron cargar las recetas");
+          handleScroll() {
+            this.isScrolled = window.scrollY > 10;
+          },
+          async loadRecipes() {
+            try {
+              const response = await fetch("recipes.json");
+              if (!response.ok) {
+                throw new Error("No se pudieron cargar las recetas");
+              }
+              this.recipes = await response.json();
+              this.loading = false;
+              this.initializeFromURL();
+            } catch (err) {
+              this.error = "Error al cargar las recetas: " + err.message;
+              this.loading = false;
             }
-            this.recipes = await response.json();
-            this.loading = false;
-            this.initializeFromURL();
-          } catch (err) {
-            this.error = "Error al cargar las recetas: " + err.message;
-            this.loading = false;
-          }
+          },
+        },
+        mounted() {
+          window.addEventListener("scroll", this.handleScroll);
+          this.loadRecipes();
+        },
+        unmounted() {
+          window.removeEventListener("scroll", this.handleScroll);
         },
       }).mount("#app");
     </script>
