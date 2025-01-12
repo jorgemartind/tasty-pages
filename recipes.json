@@ -1,0 +1,117 @@
+[
+  {
+    "id": 1,
+    "name": "Classic Spaghetti Carbonara",
+    "description": "A classic Italian pasta dish with a creamy sauce made from eggs, cheese, and pancetta.",
+    "creation_date": "2025-01-12",
+    "time": "25 minutes",
+    "servings": 4,
+    "tags": ["comfort food", "italian cuisine"],
+    "url": "https://example.com/recipes/spaghetti-carbonara",
+    "image_url": "https://www.pequerecetas.com/wp-content/uploads/2010/10/pasta-carbonara-espaguetis-receta.jpg",
+    "video_url": "https://example.com/videos/spaghetti-carbonara.mp4",
+    "ingredients": [
+      "200g spaghetti",
+      "100g pancetta",
+      "2 large eggs",
+      "50g grated parmesan cheese",
+      "2 cloves garlic, minced",
+      "2 tbsp olive oil",
+      "Salt and freshly ground black pepper"
+    ],
+    "instructions": [
+      "Cook the spaghetti in a large pot of boiling salted water until al dente.",
+      "While the pasta cooks, heat the olive oil in a pan and fry the pancetta until crispy. Add the garlic and cook for another minute.",
+      "In a bowl, whisk together the eggs and grated parmesan cheese.",
+      "Drain the spaghetti, reserving some of the cooking water.",
+      "Add the hot spaghetti to the pan with the pancetta and garlic, tossing to combine.",
+      "Remove the pan from heat and quickly stir in the egg and cheese mixture, adding a splash of the reserved pasta water to create a creamy sauce.",
+      "Season with salt and pepper to taste, and serve immediately."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Chicken Alfredo",
+    "description": "A rich and creamy pasta dish with grilled chicken and a parmesan cheese sauce.",
+    "creation_date": "2025-02-15",
+    "time": "30 minutes",
+    "servings": 4,
+    "tags": ["comfort food", "italian cuisine"],
+    "url": "https://example.com/recipes/chicken-alfredo",
+    "image_url": "https://www.budgetbytes.com/wp-content/uploads/2022/07/Chicken-Alfredo-side.jpg",
+    "video_url": "https://example.com/videos/chicken-alfredo.mp4",
+    "ingredients": [
+      "200g fettuccine",
+      "2 chicken breasts",
+      "1 cup heavy cream",
+      "100g grated parmesan cheese",
+      "2 cloves garlic, minced",
+      "2 tbsp butter",
+      "Salt and freshly ground black pepper"
+    ],
+    "instructions": [
+      "Cook the fettuccine in a large pot of boiling salted water until al dente.",
+      "Season the chicken breasts with salt and pepper, then grill until cooked through. Slice into strips.",
+      "In a pan, melt the butter and sauté the garlic until fragrant.",
+      "Add the heavy cream and bring to a simmer. Stir in the parmesan cheese until melted and smooth.",
+      "Add the cooked fettuccine and chicken strips to the sauce, tossing to coat.",
+      "Serve immediately with additional parmesan cheese if desired."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Vegetable Stir Fry",
+    "description": "A quick and healthy stir fry with a mix of colorful vegetables and a savory sauce.",
+    "creation_date": "2025-03-10",
+    "time": "20 minutes",
+    "servings": 2,
+    "tags": ["healthy", "asian cuisine"],
+    "url": "https://example.com/recipes/vegetable-stir-fry",
+    "image_url": "https://therecipecritic.com/wp-content/uploads/2019/08/vegetable_stir_fry.jpg",
+    "video_url": "https://example.com/videos/vegetable-stir-fry.mp4",
+    "ingredients": [
+      "1 cup broccoli florets",
+      "1 red bell pepper, sliced",
+      "1 carrot, julienned",
+      "1 cup snow peas",
+      "2 tbsp soy sauce",
+      "1 tbsp sesame oil",
+      "1 clove garlic, minced",
+      "1 tsp ginger, grated"
+    ],
+    "instructions": [
+      "Heat the sesame oil in a large pan or wok over medium-high heat.",
+      "Add the garlic and ginger, sautéing until fragrant.",
+      "Add the broccoli, bell pepper, carrot, and snow peas, stir-frying until tender-crisp.",
+      "Stir in the soy sauce and toss to coat the vegetables evenly.",
+      "Serve immediately, optionally with steamed rice or noodles."
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Salmón Marinado/Ahumado Casero",
+    "description": "Una receta fácil para preparar salmón marinado y ahumado en casa, ideal para aperitivos, ensaladas o sándwiches.",
+    "creation_date": "2025-01-12",
+    "time": "48 horas",
+    "servings": 10,
+    "tags": ["pescado", "aperitivo", "cocina casera"],
+    "url": "https://lacocinadefrabisa.lavozdegalicia.es/salmon-ahumado-casero-muy-facil-video/",
+    "image_url": "https://lacocinadefrabisa.lavozdegalicia.es/wp-content/uploads/2024/07/salmon-ahumado.jpg",
+    "video_url": "https://www.youtube.com/watch?v=V6D4LAFWtzk",
+    "ingredients": [
+      "1.5 kg de salmón fresco de acuicultura en 2 lomos",
+      "1.5 kg de preparado para hacer salmón ahumado (disponible en Mercadona en botes de 750 g)",
+      "Ralladura de 1 naranja",
+      "Romero fresco picado",
+      "Aceite de oliva virgen extra"
+    ],
+    "instructions": [
+      "Retira las espinas de los lomos de salmón con una pinza.",
+      "Mezcla el preparado para marinar con la ralladura de naranja y el romero picado.",
+      "En un recipiente, coloca una capa de la mezcla de marinado, pon encima los lomos de salmón y cúbrelos con el resto de la mezcla.",
+      "Cubre con film transparente, coloca un peso encima y refrigera durante 24 horas.",
+      "Retira la sal del salmón, lávalo bajo el grifo, sécalo con papel de cocina, pincélalo con aceite y envuélvelo en film transparente. Refrigera otras 24 horas.",
+      "Transcurrido el tiempo, lonchea el salmón y consérvalo en porciones envasadas al vacío en el congelador."
+    ]
+  }  
+]

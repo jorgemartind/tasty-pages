@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Receta - TastyPages</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <div id="app" class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Botón Volver -->
+        <a href="index.html" class="inline-flex items-center mb-6 text-blue-600 hover:text-blue-800">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            Volver a recetas
+        </a>
+
+        <div v-if="loading" class="text-center py-10">
+            <p class="text-gray-600">Cargando receta...</p>
+        </div>
+
+        <div v-else-if="error" class="text-center py-10">
+            <p class="text-red-600">{{ error }}</p>
+        </div>
+
+        <div v-else-if="!recipe" class="text-center py-10">
+            <p class="text-red-600">No se encontró la receta</p>
+        </div>
+
+        <div v-else class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Imagen de la receta -->
+            <img :src="recipe.image_url" :alt="recipe.name" class="w-full h-96 object-cover">
+            
+            <!-- Contenido principal -->
+            <div class="p-6">
+                <!-- Encabezado -->
+                <div class="mb-6">
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ recipe.name }}</h1>
+                    <p class="text-gray-600">{{ recipe.description }}</p>
+                </div>
+
+                <!-- Metadatos -->
+                <div class="grid grid-cols-3 gap-4 mb-6">
+                    <div class="text-center p-3 bg-gray-50 rounded-lg">
+                        <p class="text-gray-500">Tiempo</p>
+                        <p class="font-semibold">{{ recipe.time }}</p>
+                    </div>
+                    <div class="text-center p-3 bg-gray-50 rounded-lg">
+                        <p class="text-gray-500">Porciones</p>
+                        <p class="font-semibold">{{ recipe.servings }}</p>
+                    </div>
+                    <div class="text-center p-3 bg-gray-50 rounded-lg">
+                        <p class="text-gray-500">Fecha</p>
+                        <p class="font-semibold">{{ formattedDate }}</p>
+                    </div>
+                </div>
+
+                <!-- Tags -->
+                <div class="mb-6">
+                    <div class="flex flex-wrap gap-2">
+                        <span v-for="tag in recipe.tags" 
+                              class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+                            {{ tag }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Ingredientes -->
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold mb-4">Ingredientes</h2>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li v-for="ingredient in recipe.ingredients" 
+                            class="text-gray-700">
+                            {{ ingredient }}
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Instrucciones -->
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold mb-4">Instrucciones</h2>
+                    <ol class="list-decimal list-inside space-y-3">
+                        <li v-for="(instruction, index) in recipe.instructions" 
+                            class="text-gray-700">
+                            {{ instruction }}
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Video -->
+                <div v-if="recipe.video_url" class="mt-6">
+                    <h2 class="text-2xl font-bold mb-4">Video</h2>
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe :src="recipe.video_url" 
+                                class="w-full h-96 rounded-lg"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    recipe: null,
+                    loading: true,
+                    error: null
+                }
+            },
+            computed: {
+                formattedDate() {
+                    return new Intl.DateTimeFormat(navigator.language, { month: '2-digit', day: '2-digit', year: 'numeric' }).format(new Date(this.recipe.creation_date))
+                }
+            },
+            methods: {
+                getRecipeId() {
+                    const urlParams = new URLSearchParams(window.location.search)
+                    return parseInt(urlParams.get('id'))
+                }
+            },
+            async mounted() {
+                try {
+                    const recipeId = this.getRecipeId()
+                    if (!recipeId) {
+                        throw new Error('ID de receta no especificado')
+                    }
+
+                    const response = await fetch('recipes.json')
+                    if (!response.ok) {
+                        throw new Error('No se pudo cargar la receta')
+                    }
+                    const recipes = await response.json()
+                    
+                    this.recipe = recipes.find(r => r.id === recipeId)
+                    if (!this.recipe) {
+                        throw new Error('Receta no encontrada')
+                    }
+                    
+                    this.loading = false
+                } catch (err) {
+                    this.error = 'Error: ' + err.message
+                    this.loading = false
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html> 
