@@ -7,8 +7,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .gradient-background {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .gradient-background {background: linear-gradient(225deg, #f59e0b 0%, #a41bb0 100%)
         }
         .card-hover {
             transition: transform 0.2s ease-in-out;
@@ -34,10 +33,10 @@
                             <span class="text-2xl font-bold">TastyPages</span>
                         </div>
                         <div class="hidden md:flex space-x-6">
-                            <a href="#" class="text-white hover:text-gray-200 transition-colors">Inicio</a>
-                            <a href="#" class="text-white hover:text-gray-200 transition-colors">Categorías</a>
-                            <a href="#" class="text-white hover:text-gray-200 transition-colors">Populares</a>
-                            <a href="#" class="text-white hover:text-gray-200 transition-colors">Nuevas</a>
+                            <a href="#" class="text-white hover:text-amber-100 transition-colors">Inicio</a>
+                            <a href="#" class="text-white hover:text-amber-100 transition-colors">Categorías</a>
+                            <a href="#" class="text-white hover:text-amber-100 transition-colors">Populares</a>
+                            <a href="#" class="text-white hover:text-amber-100 transition-colors">Nuevas</a>
                         </div>
                     </div>
                 </div>
@@ -48,18 +47,18 @@
                 <div class="container mx-auto px-4">
                     <div class="py-8 text-center">
                         <h1 class="text-5xl font-bold mb-4 text-white">Descubre el Arte de Cocinar</h1>
-                        <p class="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
+                        <p class="text-xl text-amber-50 mb-8 max-w-2xl mx-auto">
                             Explora nuestra colección de deliciosas recetas, desde platos tradicionales hasta creaciones innovadoras
                         </p>
                         <!-- Statistics -->
                         <div class="flex justify-center space-x-8 mb-4">
                             <div class="text-center">
                                 <div class="text-3xl font-bold">{{ recipes.length }}</div>
-                                <div class="text-gray-200">Recetas</div>
+                                <div class="text-amber-50">Recetas</div>
                             </div>
                             <div class="text-center">
                                 <div class="text-3xl font-bold">{{ uniqueCategories.length }}</div>
-                                <div class="text-gray-200">Categorías</div>
+                                <div class="text-amber-50">Categorías</div>
                             </div>
                         </div>
                     </div>
@@ -75,7 +74,7 @@
                         type="text" 
                         v-model="searchQuery"
                         placeholder="Buscar por nombre, descripción o etiquetas..."
-                        class="w-full px-4 py-4 pl-12 pr-12 text-gray-700 bg-white border border-gray-300 rounded-full shadow-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
+                        class="w-full px-4 py-4 pl-12 pr-12 text-gray-700 bg-white border border-gray-300 rounded-full shadow-sm focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-all duration-200"
                     >
                     <span class="absolute inset-y-0 left-0 flex items-center pl-4">
                         <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -149,7 +148,7 @@
                             <div class="mt-4 flex flex-wrap gap-2">
                                 <a v-for="tag in recipe.tags" 
                                    :href="'?tag=' + encodeURIComponent(tag)"
-                                   class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full hover:bg-blue-200 transition-colors">
+                                   class="px-2 py-1 bg-amber-100 text-amber-800 text-xs rounded-full hover:bg-amber-200 transition-colors">
                                     {{ tag }}
                                 </a>
                             </div>

@@ -10,7 +10,7 @@
 <body class="bg-gray-50">
     <div id="app" class="container mx-auto px-4 py-8 max-w-4xl">
         <!-- Back Button -->
-        <a href="index.html" class="inline-flex items-center mb-6 text-blue-600 hover:text-blue-800">
+        <a href="index.html" class="inline-flex items-center mb-6 text-amber-600 hover:text-amber-800">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
             </svg>
@@ -46,23 +46,23 @@
 
                 <!-- Metadata -->
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-                    <div class="text-center p-3 bg-gray-50 rounded-lg flex flex-col items-center">
-                        <svg class="w-6 h-6 text-gray-500 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="text-center p-3 bg-amber-50 rounded-lg flex flex-col items-center">
+                        <svg class="w-6 h-6 text-amber-600 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                        <p class="font-semibold">{{ recipe.time }}</p>
+                        <p class="font-semibold text-amber-900">{{ recipe.time }}</p>
                     </div>
-                    <div class="text-center p-3 bg-gray-50 rounded-lg flex flex-col items-center">
-                        <svg class="w-6 h-6 text-gray-500 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="text-center p-3 bg-amber-50 rounded-lg flex flex-col items-center">
+                        <svg class="w-6 h-6 text-amber-600 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                         </svg>
-                        <p class="font-semibold">{{ recipe.servings }}</p>
+                        <p class="font-semibold text-amber-900">{{ recipe.servings }}</p>
                     </div>
-                    <div class="text-center p-3 bg-gray-50 rounded-lg hidden md:flex flex-col items-center">
-                        <svg class="w-6 h-6 text-gray-500 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="text-center p-3 bg-amber-50 rounded-lg hidden md:flex flex-col items-center">
+                        <svg class="w-6 h-6 text-amber-600 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                         </svg>
-                        <p class="font-semibold">{{ formattedDate }}</p>
+                        <p class="font-semibold text-amber-900">{{ formattedDate }}</p>
                     </div>
                 </div>
 
@@ -71,7 +71,7 @@
                     <div class="flex flex-wrap gap-2">
                         <a v-for="tag in recipe.tags" 
                            :href="'index.html?tag=' + encodeURIComponent(tag)"
-                           class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm hover:bg-blue-200 transition-colors">
+                           class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm hover:bg-amber-200 transition-colors">
                             {{ tag }}
                         </a>
                     </div>
@@ -79,7 +79,7 @@
 
                 <!-- Ingredients -->
                 <div class="mb-6">
-                    <h2 class="text-2xl font-bold mb-4">Ingredientes</h2>
+                    <h2 class="text-2xl font-bold mb-4 text-amber-900">Ingredientes</h2>
                     <ul class="list-disc list-inside space-y-2">
                         <li v-for="ingredient in recipe.ingredients" 
                             class="text-gray-700">
@@ -90,7 +90,7 @@
 
                 <!-- Instructions -->
                 <div class="mb-6">
-                    <h2 class="text-2xl font-bold mb-4">Instrucciones</h2>
+                    <h2 class="text-2xl font-bold mb-4 text-amber-900">Instrucciones</h2>
                     <ol class="list-decimal list-inside space-y-3">
                         <li v-for="(instruction, index) in recipe.instructions" 
                             class="text-gray-700">
@@ -100,22 +100,22 @@
                 </div>
 
                 <!-- Related Links -->
-                <div v-if="recipe.video_url || recipe.url" class="border-t pt-6">
-                    <h2 class="text-xl font-bold mb-4">Enlaces relacionados</h2>
+                <div v-if="recipe.video_url || recipe.url" class="border-t border-amber-200 pt-6">
+                    <h2 class="text-xl font-bold mb-4 text-amber-900">Enlaces relacionados</h2>
                     <div class="flex flex-wrap gap-3">
                         <a v-if="recipe.video_url" 
                            :href="recipe.video_url"
                            target="_blank"
-                           class="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
-                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           class="inline-flex items-center px-4 py-2 bg-amber-100 text-amber-800 rounded-lg hover:bg-amber-200 transition-colors">
+                            <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                             </svg>
                         </a>
-                        <a v-if="recipe.url" 
-                           :href="recipe.url"
+                        <a v-if="recipe.source_url" 
+                           :href="recipe.source_url"
                            target="_blank"
-                           class="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           class="inline-flex items-center px-4 py-2 bg-amber-100 text-amber-800 rounded-lg hover:bg-amber-200 transition-colors">
+                            <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                             </svg>
                         </a>
