@@ -170,12 +170,15 @@
           <!-- Ingredients -->
           <div class="mb-6">
             <h2 class="text-2xl font-bold mb-4 text-amber-900">Ingredientes</h2>
-            <ul class="list-disc list-inside space-y-2">
+            <ul class="space-y-3">
               <li
                 v-for="ingredient in recipe.ingredients"
-                class="text-gray-700"
+                class="flex items-start gap-4"
               >
-                {{ ingredient }}
+                <span class="flex-shrink-0 w-2 h-2 rounded-full bg-gray-300 mt-2"></span>
+                <span class="text-gray-700 flex-1">
+                  {{ ingredient }}
+                </span>
               </li>
             </ul>
           </div>
@@ -185,12 +188,17 @@
             <h2 class="text-2xl font-bold mb-4 text-amber-900">
               Instrucciones
             </h2>
-            <ol class="list-decimal list-inside space-y-3">
+            <ol class="list-none space-y-4">
               <li
                 v-for="(instruction, index) in recipe.instructions"
-                class="text-gray-700"
+                class="flex items-start gap-3"
               >
-                {{ instruction }}
+                <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center bg-gray-100 text-gray-600 rounded-full font-semibold text-sm">
+                  {{ index + 1 }}
+                </span>
+                <span class="text-gray-700 flex-1 pt-0.5">
+                  {{ instruction }}
+                </span>
               </li>
             </ol>
           </div>
