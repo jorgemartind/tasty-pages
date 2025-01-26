@@ -31,7 +31,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 2,
     "name": "Masa de Pizza Integral",
     "description": "Una receta sencilla para preparar una masa de pizza integral casera, ideal para una base más saludable.",
     "creation_date": "2025-01-19",
@@ -64,7 +64,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 3,
     "name": "Salmón Marinado/Ahumado",
     "description": "Una receta fácil para preparar salmón marinado y ahumado en casa, ideal para aperitivos, ensaladas o sándwiches.",
     "creation_date": "2025-01-12",
