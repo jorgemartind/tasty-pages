@@ -76,7 +76,7 @@
       <div v-else class="bg-white rounded-lg shadow-lg overflow-hidden">
         <!-- Recipe Image -->
         <img
-          :src="recipe.image_url"
+          :src="recipe.url.image"
           :alt="recipe.name"
           class="w-full h-96 object-cover"
         />
@@ -197,7 +197,7 @@
 
           <!-- Related Links -->
           <div
-            v-if="recipe.video_url || recipe.url"
+            v-if="recipe.url.video || recipe.url.source"
             class="border-t border-amber-200 pt-6"
           >
             <h2 class="text-xl font-bold mb-4 text-amber-900">
@@ -205,10 +205,10 @@
             </h2>
             <div class="flex flex-wrap gap-3">
               <a
-                v-if="recipe.video_url"
-                :href="recipe.video_url"
+                v-if="recipe.url.video"
+                :href="recipe.url.video"
                 target="_blank"
-                class="inline-flex items-center px-4 py-2 bg-amber-100 text-amber-800 rounded-lg hover:bg-amber-200 transition-colors"
+                class="inline-flex items-center p-2 bg-amber-100 text-amber-800 rounded-lg hover:bg-amber-200 transition-colors"
               >
                 <svg
                   class="w-5 h-5 text-amber-600"
@@ -225,10 +225,10 @@
                 </svg>
               </a>
               <a
-                v-if="recipe.source_url"
-                :href="recipe.source_url"
+                v-if="recipe.url.source"
+                :href="recipe.url.source"
                 target="_blank"
-                class="inline-flex items-center px-4 py-2 bg-amber-100 text-amber-800 rounded-lg hover:bg-amber-200 transition-colors"
+                class="inline-flex items-center p-2 bg-amber-100 text-amber-800 rounded-lg hover:bg-amber-200 transition-colors"
               >
                 <svg
                   class="w-5 h-5 text-amber-600"

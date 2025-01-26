@@ -7,9 +7,11 @@
     "time": "1 hora y 5 minutos",
     "servings": 6,
     "tags": ["pan", "india", "ajo"],
-    "source_url": "https://indiamagica.com/receta/naan-de-ajo/",
-    "image_url": "https://indiamagica.com/wp-content/uploads/2016/04/naan-de-ajo.jpg",
-    "video_url": "https://www.youtube.com/watch?v=V6D4LAFWtzk",
+    "url": {
+      "source": "https://indiamagica.com/receta/naan-de-ajo/",
+      "image": "https://indiamagica.com/wp-content/uploads/2016/04/naan-de-ajo.jpg",
+      "video": "https://www.youtube.com/watch?v=V6D4LAFWtzk"
+    },
     "ingredients": [
       "100 cc de agua templada",
       "125 g de yogur natural sin azúcar",
@@ -36,9 +38,11 @@
     "time": "1 hora",
     "servings": 2,
     "tags": ["pizza", "masa", "integral", "saludable"],
-    "source_url": "https://www.cocinatis.com/receta/masa-de-pizza-integral.html",
-    "image_url": "https://www.cocinatis.com/archivos/202207/CTIS0505-receta-masa-de-pizza-casera-integral_desktop_horizontal_full_width.jpg",
-    "video_url": null,
+    "url": {
+      "source": "https://www.cocinatis.com/receta/masa-de-pizza-integral.html",
+      "image": "https://www.cocinatis.com/archivos/202207/CTIS0505-receta-masa-de-pizza-casera-integral_desktop_horizontal_full_width.jpg",
+      "video": null
+    },
     "ingredients": [
       "100 g de harina integral",
       "50 g de harina de trigo",
@@ -58,8 +62,7 @@
       "Colocar la masa en una bandeja para horno y añadir los ingredientes al gusto.",
       "Hornear durante 15-20 minutos, o hasta que la base esté crujiente y los ingredientes cocidos."
     ]
-  }
-,  
+  },
   {
     "id": 4,
     "name": "Salmón Marinado/Ahumado Casero",
@@ -68,9 +71,11 @@
     "time": "48 horas",
     "servings": 10,
     "tags": ["pescado", "aperitivo", "cocina casera"],
-    "source_url": "https://lacocinadefrabisa.lavozdegalicia.es/salmon-ahumado-casero-muy-facil-video/",
-    "image_url": "https://lacocinadefrabisa.lavozdegalicia.es/wp-content/uploads/2024/07/salmon-ahumado.jpg",
-    "video_url": "https://www.youtube.com/watch?v=V6D4LAFWtzk",
+    "url": {
+      "source": "https://lacocinadefrabisa.lavozdegalicia.es/salmon-ahumado-casero-muy-facil-video/",
+      "image": "https://lacocinadefrabisa.lavozdegalicia.es/wp-content/uploads/2024/07/salmon-ahumado.jpg",
+      "video": "https://www.youtube.com/watch?v=V6D4LAFWtzk"
+    },
     "ingredients": [
       "1.5 kg de salmón fresco de acuicultura en 2 lomos",
       "1.5 kg de preparado para hacer salmón ahumado (disponible en Mercadona en botes de 750 g)",
@@ -86,5 +91,5 @@
       "Retira la sal del salmón, lávalo bajo el grifo, sécalo con papel de cocina, pincélalo con aceite y envuélvelo en film transparente. Refrigera otras 24 horas.",
       "Transcurrido el tiempo, lonchea el salmón y consérvalo en porciones envasadas al vacío en el congelador."
     ]
-  }  
+  }
 ]
