@@ -2,7 +2,6 @@
  "name": "TastyPages",
  "short_name": "TastyPages",
  "description": "Descubre y guarda tus recetas favoritas",
- "start_url": "/",
  "display": "standalone",
  "background_color": "#FFFBEB",
  "theme_color": "#F59E0B",
