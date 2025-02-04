@@ -1,0 +1,75 @@
+[
+  {
+    "id": 1,
+    "name": "Deba",
+    "other_names": ["Cuchillo para pescado japonés"],
+    "origin": "Japón",
+    "blade": {
+      "lengths_cm": [15, 18, 21, 24],
+      "profile": "Bisel único (diestro o zurdo)"
+    },
+    "uses": ["Pescado", "Aves", "Carnes pequeñas"],
+    "level": "Intermedio - Avanzado",
+    "variants": [
+      {
+        "name": "Hon-Deba",
+        "description": "Versión tradicional más gruesa y pesada."
+      },
+      {
+        "name": "Ko-Deba",
+        "description": "Versión más pequeña, ideal para peces pequeños."
+      }
+    ],
+    "description": "El Deba es un cuchillo tradicional japonés diseñado principalmente para la preparación de pescado. Su hoja gruesa y robusta permite cortar espinas y huesos pequeños sin dañarse, lo que lo convierte en una herramienta esencial en la cocina japonesa. A diferencia de otros cuchillos más delgados, el Deba tiene un bisel único que proporciona cortes precisos y controlados, especialmente al filetear pescado.",
+    "url": {
+      "image": "https://example.com/images/deba.jpg"
+    },
+    "creation_date": "2025-02-02T12:00:00Z"
+  },
+  {
+    "id": 2,
+    "name": "Santoku",
+    "other_names": ["Cuchillo de los tres usos"],
+    "origin": "Japón",
+    "blade": {
+      "lengths_cm": [16.5, 18, 20],
+      "profile": "Doble bisel"
+    },
+    "uses": ["Verduras", "Pescado", "Carne"],
+    "level": "Principiante - Intermedio",
+    "variants": [
+      {
+        "name": "Santoku con alvéolos",
+        "description": "Versión con hoyuelos que evitan que los alimentos se peguen a la hoja."
+      }
+    ],
+    "description": "El Santoku es un cuchillo versátil que significa 'tres virtudes' o 'tres usos', refiriéndose a su capacidad para cortar carne, pescado y verduras. Su hoja más corta y menos puntiaguda que un cuchillo de chef occidental lo hace ideal para personas con manos pequeñas o para trabajos de precisión.",
+    "url": {
+      "image": "https://example.com/images/santoku.jpg"
+    },
+    "creation_date": "2025-02-02T12:00:00Z"
+  },
+  {
+    "id": 3,
+    "name": "Gyuto",
+    "other_names": ["Cuchillo de chef japonés"],
+    "origin": "Japón",
+    "blade": {
+      "lengths_cm": [18, 21, 24, 27, 30],
+      "profile": "Doble bisel"
+    },
+    "uses": ["Carne", "Verduras", "Uso general"],
+    "level": "Principiante - Avanzado",
+    "variants": [
+      {
+        "name": "Gyuto occidental",
+        "description": "Versión adaptada con aceros occidentales y perfil más robusto."
+      }
+    ],
+    "description": "El Gyuto es la versión japonesa del cuchillo de chef occidental. Combina las mejores características de los cuchillos orientales y occidentales, con una hoja más fina y ligera que su contraparte europea, pero manteniendo la versatilidad para todo tipo de cortes.",
+    "url": {
+      "image": "https://example.com/images/gyuto.jpg"
+    },
+    "creation_date": "2025-02-02T12:00:00Z"
+  }
+] 

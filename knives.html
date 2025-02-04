@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Cuchillos - TastyPages</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="application-name" content="TastyPages">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="TastyPages">
+    
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="favicons/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+    
+    <!-- Android Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="favicons/android-icon-192x192.png">
+    <link rel="manifest" href="favicons/manifest.json">
+    
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-config" content="favicons/browserconfig.xml">
+    <meta name="msapplication-TileColor" content="#f59e0b">
+    <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#f59e0b">
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="bg-gray-50">
+    <div id="app">
+      <!-- Enhanced Header with Hero Section -->
+      <header class="gradient-background text-white">
+        <!-- Fixed Navigation Bar -->
+        <nav
+          class="fixed top-0 left-0 right-0 z-50 gradient-background nav-shadow"
+          :class="{ 'scrolled': isScrolled }"
+        >
+          <!-- Navigation Content -->
+          <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+              <div class="flex items-center space-x-3">
+                <!-- Logo and Brand -->
+                <svg
+                  class="w-10 h-10"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  ></path>
+                </svg>
+                <a href="index.html" class="text-2xl font-bold">TastyPages</a>
+              </div>
+              <!-- Navigation Links -->
+              <div class="flex items-center space-x-6">
+                <a href="index.html" class="text-white hover:text-amber-200 transition-colors">
+                  Recetas
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Hero Section with fixed nav padding -->
+        <div class="pt-20">
+          <div class="container mx-auto px-4">
+            <div class="py-8 text-center">
+              <!-- Hero Content -->
+              <h1 class="text-5xl font-bold mb-4 text-white">
+                Guía de Cuchillos
+              </h1>
+              <p class="text-xl text-amber-50 mb-8 max-w-2xl mx-auto">
+                Explora los diferentes tipos de cuchillos y aprende sobre sus usos específicos en la cocina
+              </p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <div class="container mx-auto px-4 py-8">
+        <!-- Loading State -->
+        <div v-if="loading" class="text-center py-10">
+          <p class="text-gray-600">Cargando cuchillos...</p>
+        </div>
+
+        <!-- Error State -->
+        <div v-else-if="error" class="text-center py-10">
+          <p class="text-red-600">{{ error }}</p>
+        </div>
+
+        <!-- Knives Grid -->
+        <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Knife Card -->
+          <div
+            v-for="knife in knives"
+            :key="knife.id"
+            class="bg-white rounded-lg shadow-lg overflow-hidden card-hover"
+          >
+            <a :href="'knife-detail.html?id=' + knife.id" class="block">
+              <!-- Knife Image -->
+              <img
+                :src="knife.url.image"
+                :alt="knife.name"
+                class="w-full h-48 object-cover"
+              />
+
+              <!-- Card Content -->
+              <div class="p-6">
+                <div class="mb-4">
+                  <h2 class="text-2xl font-bold text-amber-900 mb-2 hover:text-amber-700 transition-colors">
+                    {{ knife.name }}
+                  </h2>
+                  <div class="text-sm text-gray-500 mb-2" v-if="knife.other_names.length">
+                    {{ knife.other_names.join(', ') }}
+                  </div>
+                  <div class="w-16 h-0.5 bg-amber-500 mb-3"></div>
+                  <p class="text-gray-600 text-sm line-clamp-3">
+                    {{ knife.description }}
+                  </p>
+                </div>
+
+                <!-- Knife Metadata -->
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2 py-1 bg-amber-100 text-amber-800 text-xs rounded-full">
+                    {{ knife.origin }}
+                  </span>
+                  <span class="px-2 py-1 bg-amber-100 text-amber-800 text-xs rounded-full">
+                    {{ knife.level }}
+                  </span>
+                </div>
+
+                <!-- Uses Tags -->
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    v-for="use in knife.uses"
+                    class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded-full"
+                  >
+                    {{ use }}
+                  </span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            knives: [],
+            loading: true,
+            error: null,
+            isScrolled: false,
+          };
+        },
+        methods: {
+          handleScroll() {
+            this.isScrolled = window.scrollY > 10;
+          },
+          async loadKnives() {
+            try {
+              const response = await fetch('db/knives.json');
+              if (!response.ok) {
+                throw new Error('No se pudieron cargar los cuchillos');
+              }
+              this.knives = await response.json();
+              this.loading = false;
+            } catch (err) {
+              this.error = "Error al cargar los cuchillos: " + err.message;
+              this.loading = false;
+            }
+          },
+        },
+        mounted() {
+          window.addEventListener("scroll", this.handleScroll);
+          this.loadKnives();
+        },
+        unmounted() {
+          window.removeEventListener("scroll", this.handleScroll);
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html> 

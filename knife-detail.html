@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de Cuchillo - TastyPages</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="application-name" content="TastyPages">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="TastyPages">
+    
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="favicons/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+    
+    <!-- Android Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="favicons/android-icon-192x192.png">
+    <link rel="manifest" href="favicons/manifest.json">
+    
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-config" content="favicons/browserconfig.xml">
+    <meta name="msapplication-TileColor" content="#f59e0b">
+    <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#f59e0b">
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body class="bg-gray-50">
+    <div id="app">
+      <!-- Fixed Back Button with Navigation -->
+      <div
+        class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm nav-shadow"
+        :class="{ 'scrolled bg-white/80': isScrolled }"
+      >
+        <div class="container mx-auto px-4 py-4 max-w-4xl">
+          <a
+            href="knives.html"
+            class="inline-flex items-center text-amber-600 hover:text-amber-800 transition-colors"
+          >
+            <!-- Back Arrow Icon -->
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              ></path>
+            </svg>
+            Volver a cuchillos
+          </a>
+        </div>
+      </div>
+
+      <!-- Main Content with Navigation Padding -->
+      <div class="container mx-auto px-4 py-8 max-w-4xl mt-16">
+        <!-- Loading State -->
+        <div v-if="loading" class="text-center py-10">
+          <p class="text-gray-600">Cargando información del cuchillo...</p>
+        </div>
+
+        <!-- Error State -->
+        <div v-else-if="error" class="text-center py-10">
+          <p class="text-red-600">{{ error }}</p>
+        </div>
+
+        <!-- Empty State -->
+        <div v-else-if="!knife" class="text-center py-10">
+          <p class="text-red-600">No se encontró el cuchillo</p>
+        </div>
+
+        <!-- Knife Details -->
+        <div v-else class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <!-- Knife Image -->
+          <img
+            :src="knife.url.image"
+            :alt="knife.name"
+            class="w-full h-96 object-cover"
+          />
+
+          <!-- Main Content -->
+          <div class="p-6">
+            <!-- Knife Header -->
+            <div class="mb-8">
+              <h1 class="text-4xl md:text-5xl font-bold text-amber-900 mb-4">
+                {{ knife.name }}
+              </h1>
+              <div class="text-gray-600 mb-4" v-if="knife.other_names.length">
+                {{ knife.other_names.join(', ') }}
+              </div>
+              <div class="w-24 h-1 bg-amber-500 mb-4"></div>
+              <p class="text-gray-600 text-lg">
+                {{ knife.description }}
+              </p>
+            </div>
+
+            <!-- Knife Metadata -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+              <!-- Origin -->
+              <div class="text-center p-4 bg-amber-50 rounded-lg">
+                <div class="font-semibold text-amber-900 mb-1">Origen</div>
+                <div class="text-gray-600">{{ knife.origin }}</div>
+              </div>
+              <!-- Level -->
+              <div class="text-center p-4 bg-amber-50 rounded-lg">
+                <div class="font-semibold text-amber-900 mb-1">Nivel</div>
+                <div class="text-gray-600">{{ knife.level }}</div>
+              </div>
+              <!-- Profile -->
+              <div class="text-center p-4 bg-amber-50 rounded-lg">
+                <div class="font-semibold text-amber-900 mb-1">Perfil</div>
+                <div class="text-gray-600">{{ knife.blade.profile }}</div>
+              </div>
+            </div>
+
+            <!-- Blade Lengths -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4 text-amber-900">
+                Longitudes habituales
+              </h2>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  v-for="length in knife.blade.lengths_cm"
+                  class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full"
+                >
+                  {{ length }} cm
+                </span>
+              </div>
+            </div>
+
+            <!-- Uses -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4 text-amber-900">Usos principales</h2>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  v-for="use in knife.uses"
+                  class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full"
+                >
+                  {{ use }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Variants -->
+            <div v-if="knife.variants.length" class="mb-8">
+              <h2 class="text-2xl font-bold mb-4 text-amber-900">Variantes</h2>
+              <div class="space-y-4">
+                <div
+                  v-for="variant in knife.variants"
+                  class="p-4 bg-gray-50 rounded-lg"
+                >
+                  <h3 class="font-bold text-amber-900 mb-2">{{ variant.name }}</h3>
+                  <p class="text-gray-600">{{ variant.description }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            knife: null,
+            loading: true,
+            error: null,
+            isScrolled: false,
+          };
+        },
+        methods: {
+          handleScroll() {
+            this.isScrolled = window.scrollY > 10;
+          },
+          getKnifeId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return parseInt(urlParams.get("id"));
+          },
+          async loadKnife() {
+            try {
+              const knifeId = this.getKnifeId();
+              if (!knifeId) {
+                throw new Error("ID de cuchillo no especificado");
+              }
+
+              const response = await fetch("db/knives.json");
+              if (!response.ok) {
+                throw new Error("No se pudo cargar la información del cuchillo");
+              }
+              const knives = await response.json();
+
+              this.knife = knives.find((k) => k.id === knifeId);
+              if (!this.knife) {
+                throw new Error("Cuchillo no encontrado");
+              }
+
+              this.loading = false;
+            } catch (err) {
+              this.error = "Error: " + err.message;
+              this.loading = false;
+            }
+          },
+        },
+        mounted() {
+          window.addEventListener("scroll", this.handleScroll);
+          this.loadKnife();
+        },
+        unmounted() {
+          window.removeEventListener("scroll", this.handleScroll);
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html> 
