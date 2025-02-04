@@ -2,7 +2,6 @@
  "name": "TastyPages - Recetas de Cocina",
  "short_name": "TastyPages",
  "description": "Descubre y guarda tus recetas favoritas con instrucciones paso a paso",
- "start_url": "/index.html",
  "display": "standalone",
  "background_color": "#FFFBEB",
  "theme_color": "#F59E0B",
