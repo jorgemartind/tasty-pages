@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Categorías - TastyPages</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="application-name" content="TastyPages">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="TastyPages">
+    
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="favicons/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+    
+    <!-- Android Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="favicons/android-icon-192x192.png">
+    <link rel="manifest" href="favicons/manifest.json">
+    
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-config" content="favicons/browserconfig.xml">
+    <meta name="msapplication-TileColor" content="#f59e0b">
+    <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#f59e0b">
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .gradient-background {
+        background: linear-gradient(to left, #a41bb0 0%, #f59e0b 100%);
+      }
+      .nav-shadow {
+        transition: box-shadow 0.3s ease;
+      }
+      .nav-shadow.scrolled {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+      .category-card {
+        transition: all 0.2s ease;
+      }
+      .category-card:hover {
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <div id="app">
+      <!-- Fixed Navigation Bar -->
+      <nav
+        class="fixed top-0 left-0 right-0 z-50 gradient-background nav-shadow"
+        :class="{ 'scrolled': isScrolled }"
+      >
+        <div class="container mx-auto px-4">
+          <div class="flex justify-between items-center py-4">
+            <div class="flex items-center space-x-3">
+              <a href="index.html" class="flex items-center space-x-3 text-white hover:text-amber-100 transition-colors">
+                <svg
+                  class="w-10 h-10"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  ></path>
+                </svg>
+                <span class="text-2xl font-bold">TastyPages</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content with padding for fixed nav -->
+      <div class="container mx-auto px-4 pt-24 pb-8">
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <h1 class="text-4xl font-bold text-amber-900 mb-4">Categorías de Recetas</h1>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Explora nuestra colección de recetas por categorías
+          </p>
+        </div>
+
+        <!-- Loading State -->
+        <div v-if="loading" class="text-center py-10">
+          <p class="text-gray-600">Cargando categorías...</p>
+        </div>
+
+        <!-- Error State -->
+        <div v-else-if="error" class="text-center py-10">
+          <p class="text-red-600">{{ error }}</p>
+        </div>
+
+        <!-- Categories Grid -->
+        <div v-else class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+          <a
+            v-for="category in categories"
+            :key="category.name"
+            :href="'index.html?tag=' + encodeURIComponent(category.name)"
+            class="category-card bg-white p-3 rounded-lg shadow-sm hover:shadow-md group"
+          >
+            <div class="flex flex-col items-center text-center">
+              <h2 class="font-bold text-amber-900 group-hover:text-amber-600 transition-colors mb-1">
+                {{ category.name }}
+              </h2>
+              <span class="text-xs text-gray-500">
+                {{ category.countText }}
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            recipes: [],
+            loading: true,
+            error: null,
+            isScrolled: false,
+          };
+        },
+        computed: {
+          categories() {
+            const categoryCount = {};
+            this.recipes.forEach(recipe => {
+              recipe.tags.forEach(tag => {
+                // Capitalizar primera letra
+                const capitalizedTag = tag.charAt(0).toUpperCase() + tag.slice(1).toLowerCase();
+                categoryCount[capitalizedTag] = (categoryCount[capitalizedTag] || 0) + 1;
+              });
+            });
+
+            return Object.entries(categoryCount)
+              .map(([name, count]) => ({
+                name,
+                count,
+                // Texto condicional para el contador
+                countText: count === 1 ? '1 receta' : `${count} recetas`
+              }))
+              // Primero ordenar alfabéticamente
+              .sort((a, b) => a.name.localeCompare(b.name))
+              // Luego ordenar por cantidad (manteniendo el orden alfabético para cantidades iguales)
+              .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+          }
+        },
+        methods: {
+          handleScroll() {
+            this.isScrolled = window.scrollY > 10;
+          },
+          async loadRecipes() {
+            try {
+              const response = await fetch('recipes.json');
+              if (!response.ok) {
+                throw new Error('No se pudieron cargar las recetas');
+              }
+              this.recipes = await response.json();
+              this.loading = false;
+            } catch (err) {
+              this.error = 'Error: ' + err.message;
+              this.loading = false;
+            }
+          }
+        },
+        mounted() {
+          window.addEventListener('scroll', this.handleScroll);
+          this.loadRecipes();
+        },
+        unmounted() {
+          window.removeEventListener('scroll', this.handleScroll);
+        }
+      }).mount('#app');
+    </script>
+  </body>
+</html> 

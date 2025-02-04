@@ -193,28 +193,22 @@
                 >
                   <div class="counter-container">
                     <div class="counter-number" :key="filteredRecipes.length">
-                      <span class="text-3xl font-bold"
-                        >{{ filteredRecipes.length }}</span
-                      >
+                      <span class="text-3xl font-bold">{{ filteredRecipes.length }}</span>
                     </div>
                   </div>
                   <div class="text-amber-50 mt-1">Recetas</div>
                 </div>
-                <div
-                  class="counter-box text-center bg-white/10 backdrop-blur-sm px-8 py-4 rounded-xl cursor-default"
+                <a
+                  href="categories.html"
+                  class="counter-box text-center bg-white/10 backdrop-blur-sm px-8 py-4 rounded-xl hover:bg-white/20 transition-colors"
                 >
                   <div class="counter-container">
-                    <div
-                      class="counter-number"
-                      :key="filteredCategories.length"
-                    >
-                      <span class="text-3xl font-bold"
-                        >{{ filteredCategories.length }}</span
-                      >
+                    <div class="counter-number" :key="filteredCategories.length">
+                      <span class="text-3xl font-bold">{{ filteredCategories.length }}</span>
                     </div>
                   </div>
                   <div class="text-amber-50 mt-1">Categorías</div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
