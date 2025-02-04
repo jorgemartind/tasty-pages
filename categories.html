@@ -45,39 +45,37 @@
   </head>
   <body class="bg-gray-50">
     <div id="app">
-      <!-- Fixed Navigation Bar -->
-      <nav
-        class="fixed top-0 left-0 right-0 z-50 gradient-background nav-shadow"
-        :class="{ 'scrolled': isScrolled }"
+      <!-- Fixed Back Button with Navigation -->
+      <div
+        class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm nav-shadow"
+        :class="{ 'scrolled bg-white/80': isScrolled }"
       >
-        <!-- Navigation Content -->
-        <div class="container mx-auto px-4">
-          <div class="flex justify-between items-center py-4">
-            <!-- Logo and Brand -->
-            <div class="flex items-center space-x-3">
-              <a href="index.html" class="flex items-center space-x-3 text-white hover:text-amber-100 transition-colors">
-                <svg
-                  class="w-10 h-10"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                  ></path>
-                </svg>
-                <span class="text-2xl font-bold">TastyPages</span>
-              </a>
-            </div>
-          </div>
+        <div class="container mx-auto px-4 py-4 max-w-4xl">
+          <a
+            href="index.html"
+            class="inline-flex items-center text-amber-600 hover:text-amber-800 transition-colors"
+          >
+            <!-- Back Arrow Icon -->
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              ></path>
+            </svg>
+            Volver a recetas
+          </a>
         </div>
-      </nav>
+      </div>
 
       <!-- Main Content with Navigation Padding -->
-      <div class="container mx-auto px-4 pt-24 pb-8">
+      <div class="container mx-auto px-4 py-8 max-w-4xl mt-16">
         <!-- Page Header -->
         <div class="text-center mb-12">
           <h1 class="text-4xl font-bold text-amber-900 mb-4">Categorías de Recetas</h1>
