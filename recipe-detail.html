@@ -34,21 +34,12 @@
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .nav-shadow {
-        transition: box-shadow 0.3s ease;
-      }
-
-      .nav-shadow.scrolled {
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-          0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css">
   </head>
 
   <body class="bg-gray-50">
     <div id="app">
-      <!-- Fixed Back Button -->
+      <!-- Fixed Back Button with Navigation -->
       <div
         class="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm nav-shadow"
         :class="{ 'scrolled bg-white/80': isScrolled }"
@@ -58,6 +49,7 @@
             href="index.html"
             class="inline-flex items-center text-amber-600 hover:text-amber-800 transition-colors"
           >
+            <!-- Back Arrow Icon -->
             <svg
               class="w-5 h-5 mr-2"
               fill="none"
@@ -76,6 +68,7 @@
         </div>
       </div>
 
+      <!-- Main Content with Navigation Padding -->
       <div class="container mx-auto px-4 py-8 max-w-4xl mt-16">
         <!-- Loading State -->
         <div v-if="loading" class="text-center py-10">
@@ -92,6 +85,7 @@
           <p class="text-red-600">No se encontró la receta</p>
         </div>
 
+        <!-- Recipe Details Card -->
         <div v-else class="bg-white rounded-lg shadow-lg overflow-hidden">
           <!-- Recipe Image -->
           <img
@@ -102,7 +96,7 @@
 
           <!-- Main Content -->
           <div class="p-6">
-            <!-- Header -->
+            <!-- Recipe Header -->
             <div class="mb-8 text-center">
               <h1
                 class="text-4xl md:text-5xl font-bold text-amber-900 mb-4 leading-tight"
@@ -115,8 +109,9 @@
               </p>
             </div>
 
-            <!-- Metadata -->
+            <!-- Recipe Metadata -->
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+              <!-- Time Info -->
               <div
                 class="text-center p-3 bg-amber-50 rounded-lg flex flex-col items-center"
               >
@@ -135,6 +130,7 @@
                 </svg>
                 <p class="font-semibold text-amber-900">{{ recipe.time }}</p>
               </div>
+              <!-- Servings Info -->
               <div
                 class="text-center p-3 bg-amber-50 rounded-lg flex flex-col items-center"
               >
@@ -153,6 +149,7 @@
                 </svg>
                 <p class="font-semibold text-amber-900">{{ recipe.servings }}</p>
               </div>
+              <!-- Date Info -->
               <div
                 class="text-center p-3 bg-amber-50 rounded-lg hidden md:flex flex-col items-center"
               >
@@ -173,7 +170,7 @@
               </div>
             </div>
 
-            <!-- Tags -->
+            <!-- Recipe Tags -->
             <div class="mb-6">
               <div class="flex flex-wrap gap-2">
                 <a
@@ -186,7 +183,7 @@
               </div>
             </div>
 
-            <!-- Ingredients -->
+            <!-- Recipe Ingredients -->
             <div class="mb-6">
               <h2 class="text-2xl font-bold mb-4 text-amber-900">Ingredientes</h2>
               <ul class="space-y-3">
@@ -202,7 +199,7 @@
               </ul>
             </div>
 
-            <!-- Instructions -->
+            <!-- Recipe Instructions -->
             <div class="mb-6">
               <h2 class="text-2xl font-bold mb-4 text-amber-900">
                 Instrucciones
@@ -231,6 +228,7 @@
                 Enlaces relacionados
               </h2>
               <div class="flex flex-wrap gap-3">
+                <!-- Video Link -->
                 <a
                   v-if="recipe.url.video"
                   :href="recipe.url.video"
@@ -251,6 +249,7 @@
                     />
                   </svg>
                 </a>
+                <!-- Source Link -->
                 <a
                   v-if="recipe.url.source"
                   :href="recipe.url.source"

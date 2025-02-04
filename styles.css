@@ -1,0 +1,69 @@
+/* Backgrounds and gradients */
+.gradient-background {
+  background: linear-gradient(to left, #a41bb0 0%, #f59e0b 100%);
+}
+
+/* Navigation and shadows */
+.nav-shadow {
+  transition: box-shadow 0.3s ease;
+}
+
+.nav-shadow.scrolled {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Card animations and hover effects */
+.card-hover {
+  transition: transform 0.2s ease-in-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+}
+
+.category-card {
+  transition: all 0.2s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Counter animations and effects */
+@keyframes countAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Counter container styles */
+.counter-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Counter number animation */
+.counter-number {
+  display: inline-block;
+  animation: countAnimation 0.6s ease-in-out;
+}
+
+/* Counter box hover effects */
+.counter-box {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.counter-box:hover {
+  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.15);
+} 
