@@ -334,9 +334,9 @@
           },
           async loadRecipes() {
             try {
-              const response = await fetch("recipes.json");
+              const response = await fetch('db/recipes.json');
               if (!response.ok) {
-                throw new Error("No se pudieron cargar las recetas");
+                throw new Error('No se pudieron cargar las recetas');
               }
               this.recipes = await response.json();
               this.loading = false;

@@ -322,7 +322,7 @@
               throw new Error("ID de receta no especificado");
             }
 
-            const response = await fetch("recipes.json");
+            const response = await fetch("db/recipes.json");
             if (!response.ok) {
               throw new Error("No se pudo cargar la receta");
             }
