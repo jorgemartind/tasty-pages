@@ -117,7 +117,7 @@
                   <!-- Clear Search Button -->
                   <button
                     v-if="searchQuery"
-                    @click="searchQuery = ''"
+                    @click="clearSearch"
                     class="absolute inset-y-0 right-0 flex items-center pr-5 group"
                   >
                     <svg
@@ -322,6 +322,13 @@
           },
         },
         methods: {
+          clearSearch() {
+            this.searchQuery = '';
+            // Limpiar el parámetro de búsqueda de la URL
+            const url = new URL(window.location.href);
+            url.searchParams.delete('tag');
+            window.history.replaceState({}, '', url);
+          },
           initializeFromURL() {
             const urlParams = new URLSearchParams(window.location.search);
             const tag = urlParams.get("tag");
