@@ -94,86 +94,101 @@
 
         <!-- Knife Details -->
         <div v-else class="bg-white rounded-lg shadow-lg overflow-hidden">
-          <!-- Knife Image -->
-          <img
-            :src="knife.url.image"
-            :alt="knife.name"
-            class="w-full h-96 object-cover"
-          />
+          <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 p-6">
+            <!-- Knife Image Section -->
+            <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+              <img
+                v-if="knife.url.image"
+                :src="knife.url.image"
+                :alt="knife.name"
+                class="w-full h-full object-cover object-center"
+                @error="handleImageError"
+              />
+              <div v-else class="w-full h-full flex items-center justify-center text-gray-400">
+                <svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+            </div>
 
-          <!-- Main Content -->
-          <div class="p-6">
-            <!-- Knife Header -->
-            <div class="mb-8">
-              <h1 class="text-4xl md:text-5xl font-bold text-amber-900 mb-4">
+            <!-- Knife Header Info -->
+            <div>
+              <h1 class="text-4xl font-bold text-amber-900 mb-2">
                 {{ knife.name }}
               </h1>
               <div class="text-gray-600 mb-4" v-if="knife.other_names.length">
                 {{ knife.other_names.join(', ') }}
               </div>
               <div class="w-24 h-1 bg-amber-500 mb-4"></div>
-              <p class="text-gray-600 text-lg">
+              <p class="text-gray-600 text-lg mb-6">
                 {{ knife.description }}
               </p>
-            </div>
 
-            <!-- Knife Metadata -->
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-              <!-- Origin -->
-              <div class="text-center p-4 bg-amber-50 rounded-lg">
-                <div class="font-semibold text-amber-900 mb-1">Origen</div>
-                <div class="text-gray-600">{{ knife.origin }}</div>
+              <!-- Quick Info Grid -->
+              <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="bg-amber-50 p-4 rounded-lg">
+                  <div class="font-semibold text-amber-900 mb-1">Origen</div>
+                  <div class="text-gray-600">{{ knife.origin }}</div>
+                </div>
+                <div class="bg-amber-50 p-4 rounded-lg">
+                  <div class="font-semibold text-amber-900 mb-1">Nivel</div>
+                  <div class="text-gray-600">{{ knife.level }}</div>
+                </div>
               </div>
-              <!-- Level -->
-              <div class="text-center p-4 bg-amber-50 rounded-lg">
-                <div class="font-semibold text-amber-900 mb-1">Nivel</div>
-                <div class="text-gray-600">{{ knife.level }}</div>
-              </div>
-              <!-- Profile -->
-              <div class="text-center p-4 bg-amber-50 rounded-lg">
-                <div class="font-semibold text-amber-900 mb-1">Perfil</div>
-                <div class="text-gray-600">{{ knife.blade.profile }}</div>
-              </div>
-            </div>
 
-            <!-- Blade Lengths -->
-            <div class="mb-8">
-              <h2 class="text-2xl font-bold mb-4 text-amber-900">
-                Longitudes habituales
-              </h2>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  v-for="length in knife.blade.lengths_cm"
-                  class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full"
-                >
-                  {{ length }} cm
-                </span>
+              <!-- Uses Tags -->
+              <div class="mb-6">
+                <h2 class="text-lg font-semibold text-amber-900 mb-2">Usos principales</h2>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    v-for="use in knife.uses"
+                    class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm"
+                  >
+                    {{ use }}
+                  </span>
+                </div>
               </div>
             </div>
+          </div>
 
-            <!-- Uses -->
-            <div class="mb-8">
-              <h2 class="text-2xl font-bold mb-4 text-amber-900">Usos principales</h2>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  v-for="use in knife.uses"
-                  class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full"
-                >
-                  {{ use }}
-                </span>
+          <!-- Additional Details Section -->
+          <div class="border-t border-gray-100 bg-gray-50">
+            <div class="max-w-4xl mx-auto p-6 space-y-8">
+              <!-- Technical Details -->
+              <div>
+                <h2 class="text-2xl font-bold mb-4 text-amber-900">Detalles técnicos</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <!-- Profile Info -->
+                  <div class="bg-white p-4 rounded-lg shadow-sm">
+                    <div class="font-semibold text-amber-900 mb-2">Perfil de la hoja</div>
+                    <div class="text-gray-600">{{ knife.blade.profile }}</div>
+                  </div>
+                  <!-- Lengths Info -->
+                  <div class="bg-white p-4 rounded-lg shadow-sm">
+                    <div class="font-semibold text-amber-900 mb-2">Longitudes disponibles</div>
+                    <div class="flex flex-wrap gap-2">
+                      <span
+                        v-for="length in knife.blade.lengths_cm"
+                        class="px-2 py-1 bg-gray-100 text-gray-800 rounded-full text-sm"
+                      >
+                        {{ length }} cm
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <!-- Variants -->
-            <div v-if="knife.variants.length" class="mb-8">
-              <h2 class="text-2xl font-bold mb-4 text-amber-900">Variantes</h2>
-              <div class="space-y-4">
-                <div
-                  v-for="variant in knife.variants"
-                  class="p-4 bg-gray-50 rounded-lg"
-                >
-                  <h3 class="font-bold text-amber-900 mb-2">{{ variant.name }}</h3>
-                  <p class="text-gray-600">{{ variant.description }}</p>
+              <!-- Variants Section -->
+              <div v-if="knife.variants.length">
+                <h2 class="text-2xl font-bold mb-4 text-amber-900">Variantes</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div
+                    v-for="variant in knife.variants"
+                    class="bg-white p-4 rounded-lg shadow-sm"
+                  >
+                    <h3 class="font-bold text-amber-900 mb-2">{{ variant.name }}</h3>
+                    <p class="text-gray-600">{{ variant.description }}</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -225,6 +240,9 @@
               this.error = "Error: " + err.message;
               this.loading = false;
             }
+          },
+          handleImageError() {
+            // Handle image loading error
           },
         },
         mounted() {

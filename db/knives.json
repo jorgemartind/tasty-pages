@@ -117,5 +117,28 @@
       "image": "images/knife-yanagiba.jpg"
     },
     "creation_date": "2025-02-02T12:00:00Z"
+  },
+  {
+    "id": 6,
+    "name": "Kiritsuke",
+    "other_names": ["Cuchillo del chef ejecutivo"],
+    "origin": "Japón",
+    "blade": {
+      "lengths_cm": [24, 27, 30],
+      "profile": "Bisel único"
+    },
+    "uses": ["Verduras", "Pescado", "Carne", "Hierbas"],
+    "level": "Avanzado",
+    "variants": [
+      {
+        "name": "Kiritsuke Gyuto",
+        "description": "Versión de doble bisel, más versátil y fácil de usar."
+      }
+    ],
+    "description": "El Kiritsuke es tradicionalmente el cuchillo del chef ejecutivo en Japón, simbolizando experiencia y estatus. Combina las características del Yanagiba y el Usuba, permitiendo realizar tanto cortes precisos en pescado como trabajo detallado con vegetales. Su punta característica en ángulo y su filo de un solo bisel requieren técnica y práctica para su uso efectivo.",
+    "url": {
+      "image": "images/knife-kiritsuke.jpg"
+    },
+    "creation_date": "2025-02-02T12:00:00Z"
   }
 ] 
