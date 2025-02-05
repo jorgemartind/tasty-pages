@@ -22,7 +22,7 @@
     ],
     "description": "El Deba es un cuchillo tradicional japonés diseñado principalmente para la preparación de pescado. Su hoja gruesa y robusta permite cortar espinas y huesos pequeños sin dañarse, lo que lo convierte en una herramienta esencial en la cocina japonesa. A diferencia de otros cuchillos más delgados, el Deba tiene un bisel único que proporciona cortes precisos y controlados, especialmente al filetear pescado.",
     "url": {
-      "image": "https://example.com/images/deba.jpg"
+      "image": "images/knife-deba.jpg"
     },
     "creation_date": "2025-02-02T12:00:00Z"
   },
@@ -45,7 +45,7 @@
     ],
     "description": "El Santoku es un cuchillo versátil que significa 'tres virtudes' o 'tres usos', refiriéndose a su capacidad para cortar carne, pescado y verduras. Su hoja más corta y menos puntiaguda que un cuchillo de chef occidental lo hace ideal para personas con manos pequeñas o para trabajos de precisión.",
     "url": {
-      "image": "https://example.com/images/santoku.jpg"
+      "image": "images/knife-santoku.jpg"
     },
     "creation_date": "2025-02-02T12:00:00Z"
   },
@@ -68,7 +68,53 @@
     ],
     "description": "El Gyuto es la versión japonesa del cuchillo de chef occidental. Combina las mejores características de los cuchillos orientales y occidentales, con una hoja más fina y ligera que su contraparte europea, pero manteniendo la versatilidad para todo tipo de cortes.",
     "url": {
-      "image": "https://example.com/images/gyuto.jpg"
+      "image": "images/knife-gyuto.jpg"
+    },
+    "creation_date": "2025-02-02T12:00:00Z"
+  },
+  {
+    "id": 4,
+    "name": "Nakiri",
+    "other_names": ["Cuchillo para vegetales"],
+    "origin": "Japón",
+    "blade": {
+      "lengths_cm": [16.5, 18, 19.5],
+      "profile": "Doble bisel"
+    },
+    "uses": ["Verduras", "Hierbas"],
+    "level": "Principiante - Intermedio",
+    "variants": [
+      {
+        "name": "Usuba",
+        "description": "Versión profesional de un solo bisel, más delgada y precisa."
+      }
+    ],
+    "description": "El Nakiri es un cuchillo especializado en el corte de vegetales, con una hoja rectangular que facilita cortes limpios y precisos. Su diseño permite mantener un contacto completo con la tabla de cortar, lo que lo hace ideal para cortar verduras en rodajas finas y uniformes.",
+    "url": {
+      "image": "images/knife-nakiri.jpg"
+    },
+    "creation_date": "2025-02-02T12:00:00Z"
+  },
+  {
+    "id": 5,
+    "name": "Yanagiba",
+    "other_names": ["Cuchillo para sashimi"],
+    "origin": "Japón",
+    "blade": {
+      "lengths_cm": [24, 27, 30, 33],
+      "profile": "Bisel único"
+    },
+    "uses": ["Pescado crudo", "Sashimi", "Sushi"],
+    "level": "Avanzado",
+    "variants": [
+      {
+        "name": "Takobiki",
+        "description": "Versión con punta cuadrada, popular en la región de Kanto."
+      }
+    ],
+    "description": "El Yanagiba es un cuchillo largo y delgado diseñado específicamente para cortar pescado crudo en láminas finas. Su hoja de un solo bisel permite realizar cortes extremadamente precisos y limpios, esenciales para la preparación de sashimi y sushi.",
+    "url": {
+      "image": "images/knife-yanagiba.jpg"
     },
     "creation_date": "2025-02-02T12:00:00Z"
   }
