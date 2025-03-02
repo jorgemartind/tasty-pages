@@ -252,7 +252,7 @@
               <div class="md:w-[200px] shrink-0 bg-gray-100 flex items-center justify-center">
                 <img
                   v-if="knife.url.image"
-                  :src="knife.url.image.replace('images/', '../images/')"
+                  :src="knife.url.image.replace('images/', 'images/')"
                   :alt="knife.name"
                   @error="handleImageError($event, knife)"
                   class="w-full h-40 md:h-[200px] object-cover object-center"
@@ -345,7 +345,7 @@
           },
           async loadKnives() {
             try {
-              const response = await fetch('../db/knives.json');
+              const response = await fetch('db/knives.json');
               if (!response.ok) {
                 throw new Error('No se pudieron cargar los cuchillos');
               }
