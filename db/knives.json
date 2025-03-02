@@ -140,5 +140,78 @@
       "image": "images/knife-kiritsuke.jpg"
     },
     "creation_date": "2025-02-02T12:00:00Z"
+  },
+  {
+    "id": 7,
+    "name": "Mioroshi",
+    "other_names": ["Mioroshi Deba", "Cuchillo multiusos para pescado"],
+    "origin": "Japón",
+    "blade": {
+      "lengths_cm": [18, 21, 24],
+      "profile": "Bisel único (diestro o zurdo)"
+    },
+    "uses": ["Pescado", "Filetear", "Cortar", "Deshuesar"],
+    "level": "Intermedio",
+    "variants": [
+      {
+        "name": "Mioroshi Deba",
+        "description": "Versión más robusta, híbrido entre Deba y Yanagiba."
+      }
+    ],
+    "description": "El Mioroshi es un cuchillo versátil que combina características del Deba y el Yanagiba. Más delgado que un Deba tradicional pero más robusto que un Yanagiba, permite realizar todas las etapas de preparación del pescado: desde descabezar y deshuesar hasta filetear y cortar en láminas finas. Su nombre deriva de 'mioroshi', que significa 'ver a través', refiriéndose a su capacidad para procesar el pescado de principio a fin.",
+    "url": {
+      "image": "images/knife-mioroshi.jpg"
+    },
+    "creation_date": "2025-05-01T12:00:00Z"
+  },
+  {
+    "id": 8,
+    "name": "Takohiki",
+    "other_names": ["Cuchillo para pulpo", "Yanagiba de punta cuadrada"],
+    "origin": "Japón",
+    "blade": {
+      "lengths_cm": [24, 27, 30, 33],
+      "profile": "Bisel único"
+    },
+    "uses": ["Pulpo", "Pescado", "Sashimi", "Sushi"],
+    "level": "Avanzado",
+    "variants": [
+      {
+        "name": "Takohiki de Kanto",
+        "description": "Versión tradicional de la región de Tokio, con punta más cuadrada."
+      }
+    ],
+    "description": "El Takohiki es un cuchillo especializado similar al Yanagiba, pero con una punta cuadrada o truncada en lugar de puntiaguda. Originalmente diseñado para cortar pulpo ('tako' significa pulpo y 'hiki' significa cortar o rebanar), es popular en la región de Kanto (Tokio). La punta cuadrada evita perforar accidentalmente los ingredientes delicados y facilita los cortes rectos y precisos, especialmente en espacios reducidos como los mostradores de sushi tradicionales.",
+    "url": {
+      "image": "images/knife-takohiki.jpg"
+    },
+    "creation_date": "2025-05-01T12:00:00Z"
+  },
+  {
+    "id": 9,
+    "name": "Usuba",
+    "other_names": ["Cuchillo profesional para vegetales"],
+    "origin": "Japón",
+    "blade": {
+      "lengths_cm": [18, 21, 24],
+      "profile": "Bisel único"
+    },
+    "uses": ["Verduras", "Cortes decorativos", "Técnicas precisas"],
+    "level": "Avanzado",
+    "variants": [
+      {
+        "name": "Kamagata Usuba",
+        "description": "Versión con punta en forma de hoz, típica de la región de Kanto."
+      },
+      {
+        "name": "Kansai Usuba",
+        "description": "Versión con punta recta, tradicional de la región de Kansai (Osaka)."
+      }
+    ],
+    "description": "El Usuba es un cuchillo profesional japonés diseñado específicamente para el corte de vegetales. A diferencia del Nakiri (su contraparte de uso doméstico), el Usuba tiene un bisel único extremadamente afilado que permite cortes increíblemente precisos. Su nombre significa 'hoja delgada' y es esencial para técnicas avanzadas como el katsuramuki (corte en láminas finas) y el sengiri (corte en juliana). Su diseño rectangular con hoja recta facilita el contacto completo con la tabla de cortar, ideal para cortes uniformes y decorativos.",
+    "url": {
+      "image": "images/knife-usuba.jpg"
+    },
+    "creation_date": "2025-05-01T12:00:00Z"
   }
 ] 

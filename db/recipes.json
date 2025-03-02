@@ -91,5 +91,109 @@
       "Retira la sal del salmón, lávalo bajo el grifo, sécalo con papel de cocina, pincélalo con aceite y envuélvelo en film transparente. Refrigera otras 24 horas.",
       "Transcurrido el tiempo, lonchea el salmón y consérvalo en porciones envasadas al vacío en el congelador."
     ]
+  },
+  {
+    "id": 4,
+    "name": "Sunomono",
+    "description": "Una refrescante ensalada japonesa de pepino marinado con vinagre, perfecta como guarnición o aperitivo.",
+    "creation_date": "2025-05-01",
+    "time": "25 minutos",
+    "servings": 4,
+    "tags": ["japonés", "ensalada", "vegetariano", "aperitivo"],
+    "url": {
+      "source": "https://cocinaconcoqui.com/sunomono/",
+      "image": "https://cocinaconcoqui.com/wp-content/uploads/2024/04/ensalada-de-pepino-japonesa-600x620.jpg",
+      "video": "https://www.youtube.com/watch?v=sfY71cQ9QkE"
+    },
+    "ingredients": [
+      "4 pepinos pequeños",
+      "1/2 cucharadita de sal",
+      "3 cucharadas de vinagre blanco",
+      "2 cucharadas de salsa de soja",
+      "1 cucharada y 1/2 de azúcar",
+      "1 cucharada de semillas de sésamo",
+      "1 cucharada de aceite de sésamo"
+    ],
+    "instructions": [
+      "Corta los pepinos en rodajas muy finas (1mm de grosor) usando una mandolina si es posible.",
+      "Añade 1/2 cucharadita de sal a los pepinos y mezcla bien. Deja reposar durante 10 minutos para que la sal extraiga el agua.",
+      "Mientras reposan los pepinos, prepara la salsa mezclando: vinagre blanco, salsa de soja, azúcar, semillas de sésamo y aceite de sésamo.",
+      "Pasados los 10 minutos, retira el agua de los pepinos y exprímelos para eliminar el exceso de líquido.",
+      "Añade la salsa preparada a los pepinos, mezcla bien y sirve."
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Kimchi Coreano",
+    "description": "Una especialidad gastronómica típica de Corea elaborada mediante la fermentación de col china con una sabrosa salsa picante. Un acompañamiento tradicional que puede durar hasta 3 meses en la nevera.",
+    "creation_date": "2025-05-01",
+    "time": "48 horas",
+    "servings": 20,
+    "tags": ["coreano", "fermentado", "verduras", "picante"],
+    "url": {
+      "source": "https://www.bonviveur.es/recetas/kimchi-coreano",
+      "image": "https://imag.bonviveur.com/kimchi-coreano.webp",
+      "video": null
+    },
+    "ingredients": [
+      "50 g de harina de arroz",
+      "50 ml de agua",
+      "1,5 kg de col china",
+      "200 g de rábano daikon",
+      "200 g de zanahorias",
+      "8 g de sal marina",
+      "2 cebollas medianas",
+      "4 dientes de ajo",
+      "50 g de jengibre",
+      "50 g de gochugaru (guindilla coreana en polvo)",
+      "1 manojo de cebolletas sin bulbos (4-6 unidades)",
+      "100 ml de salsa de pescado"
+    ],
+    "instructions": [
+      "Disolver la harina de arroz en agua y calentar a fuego medio sin dejar de remover hasta que espese. Dejar enfriar.",
+      "Quitar las hojas exteriores de la col china, cortarla en cuartos y luego en trozos del tamaño de un bocado.",
+      "Pelar el rábano daikon y las zanahorias y cortarlos en juliana (tiras finas).",
+      "Mezclar la col con el rábano, la zanahoria y la sal. Dejar reposar 30 minutos para que se ablanden las verduras.",
+      "Pelar y trocear las cebollas, el ajo y el jengibre. Triturarlos hasta hacer una pasta.",
+      "Mezclar la pasta de harina de arroz enfriada con el gochugaru.",
+      "Añadir a la mezcla de gochugaru el puré de cebolla, ajo y jengibre, las cebolletas troceadas, la salsa de pescado y la mezcla de col. Mezclar bien.",
+      "Meter en botes limpios y secos, compactando bien para evitar burbujas de aire.",
+      "Dejar fermentar en un lugar cálido y oscuro durante 48 horas (para un kimchi suave) o hasta 1 semana (para un sabor más fuerte).",
+      "Guardar en la nevera, donde se conservará hasta 3 meses, teniendo en cuenta que el sabor se volverá más ácido y fuerte con el tiempo."
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Coulant de Chocolate",
+    "description": "Un postre espectacular con exterior crujiente y corazón de chocolate fundido, adaptación sencilla de la receta del chef Michel Bras. Perfecto para sorprender a los invitados.",
+    "creation_date": "2025-05-01",
+    "time": "20 minutos",
+    "servings": 10,
+    "tags": ["postre", "chocolate", "horno", "dulce"],
+    "url": {
+      "source": "https://www.abc.es/recetasderechupete/receta-de-coulant-o-muerte-por-chocolate/932/",
+      "image": "https://www.recetasderechupete.com/wp-content/uploads/2022/03/Coulant-de-chocolate.jpg",
+      "video": null
+    },
+    "ingredients": [
+      "250 g de chocolate negro 70%",
+      "100 g de azúcar blanquilla o glass",
+      "200 g de mantequilla",
+      "6 huevos medianos",
+      "100 g de harina de repostería",
+      "1 pellizco de sal fina",
+      "2 cucharadas de cacao en polvo 70%"
+    ],
+    "instructions": [
+      "Precalentar el horno a 200°C con calor arriba y abajo.",
+      "Derretir el chocolate junto con la mantequilla al baño maría o en el microondas con cuidado.",
+      "En un bol grande, batir los huevos con el azúcar hasta que la mezcla blanquee y doble su volumen.",
+      "Añadir el chocolate con mantequilla derretido a la mezcla de huevos y azúcar, mezclando suavemente.",
+      "Tamizar la harina junto con el cacao en polvo y la sal, e incorporar a la mezcla anterior con movimientos envolventes.",
+      "Rellenar los moldes de aluminio (previamente engrasados) hasta 3/4 de su capacidad.",
+      "Si se van a consumir en el momento, hornear 9-10 minutos si la masa está recién hecha, o 15-16 minutos si está congelada.",
+      "Dejar reposar 2 minutos antes de desmoldar y servir inmediatamente, espolvoreado con azúcar glass o cacao en polvo.",
+      "Opcional: acompañar con una bola de helado de vainilla."
+    ]
   }
 ]
