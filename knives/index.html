@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Cuchillos Japoneses - TastyPages</title>
+
+    <!-- PWA Meta Tags -->
+    <meta name="application-name" content="TastyPages">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="TastyPages">
+    
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="../favicons/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../favicons/favicon-96x96.png">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="../favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-icon-180x180.png">
+    
+    <!-- Android Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="../favicons/android-icon-192x192.png">
+    <link rel="manifest" href="../favicons/manifest.json">
+    
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-config" content="../favicons/browserconfig.xml">
+    <meta name="msapplication-TileColor" content="#f59e0b">
+    <meta name="msapplication-TileImage" content="../favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#f59e0b">
+
+    <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="bg-gray-50">
+    <div id="app">
+      <!-- Enhanced Header with Hero Section -->
+      <header class="gradient-background text-white">
+        <!-- Fixed Navigation Bar -->
+        <nav
+          class="fixed top-0 left-0 right-0 z-50 gradient-background nav-shadow"
+          :class="{ 'scrolled': isScrolled }"
+        >
+          <!-- Navigation Content -->
+          <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+              <div class="flex items-center space-x-3">
+                <!-- Logo and Brand -->
+                <svg
+                  class="w-10 h-10"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  ></path>
+                </svg>
+                <a href="../index.html" class="text-2xl font-bold">TastyPages</a>
+              </div>
+
+              <!-- Mobile Menu Button -->
+              <button 
+                @click="isMenuOpen = !isMenuOpen"
+                class="md:hidden text-white focus:outline-none"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    v-if="!isMenuOpen"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                  <path
+                    v-else
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Desktop Navigation Links -->
+              <div class="hidden md:flex items-center space-x-6">
+                <a 
+                  href="../index.html" 
+                  class="text-white/70 hover:text-white transition-colors px-3 py-1"
+                >
+                  Recetas
+                </a>
+                <a 
+                  href="index.html" 
+                  class="text-white border-b-2 border-white px-3 py-1"
+                >
+                  Cuchillos
+                </a>
+              </div>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div 
+              v-show="isMenuOpen"
+              class="md:hidden py-4 border-t border-white/10"
+            >
+              <div class="flex flex-col space-y-3">
+                <a 
+                  href="../index.html" 
+                  class="text-white/70 hover:text-white transition-colors px-3 py-1"
+                >
+                  Recetas
+                </a>
+                <a 
+                  href="index.html" 
+                  class="text-white border-b-2 border-white px-3 py-1"
+                >
+                  Cuchillos
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Hero Section with fixed nav padding -->
+        <div class="pt-20">
+          <div class="container mx-auto px-4">
+            <div class="py-12 text-center">
+              <!-- Hero Content -->
+              <h1 class="text-5xl font-bold mb-4 text-white">
+                El Arte de los Cuchillos Japoneses
+              </h1>
+              <p class="text-xl text-amber-50 mb-8 max-w-3xl mx-auto">
+                Descubre la tradición milenaria, la artesanía excepcional y la precisión incomparable de los cuchillos japoneses
+              </p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <div class="container mx-auto px-4 py-12">
+        <!-- Introduction Section -->
+        <div class="max-w-4xl mx-auto mb-16">
+          <h2 class="text-3xl font-bold text-amber-900 mb-6">La Tradición de los Cuchillos Japoneses</h2>
+          <div class="prose prose-lg max-w-none text-gray-700">
+            <p class="mb-4">
+              Los cuchillos japoneses representan siglos de tradición y artesanía, combinando técnicas ancestrales de forja de espadas con innovaciones modernas. A diferencia de sus contrapartes occidentales, estos cuchillos se caracterizan por su precisión excepcional, materiales de alta calidad y diseños especializados para tareas específicas.
+            </p>
+            <p>
+              Cada cuchillo japonés es una obra de arte funcional, creada por artesanos que han perfeccionado su oficio durante generaciones. Desde la selección del acero hasta el templado final, cada paso del proceso de fabricación está imbuido de atención meticulosa al detalle y respeto por la tradición.
+            </p>
+          </div>
+        </div>
+
+        <!-- Categories Section -->
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <!-- Types of Knives Card -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="h-48 bg-amber-100 flex items-center justify-center">
+              <svg class="w-24 h-24 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 4.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" />
+              </svg>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-amber-900 mb-2">Tipos de Cuchillos</h3>
+              <p class="text-gray-600 mb-4">
+                Explora la diversidad de cuchillos japoneses, cada uno diseñado para una función específica, desde el versátil Santoku hasta el especializado Yanagiba para sashimi.
+              </p>
+              <a href="knives.html" class="inline-block px-4 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors">
+                Ver tipos de cuchillos
+              </a>
+            </div>
+          </div>
+
+          <!-- Brands Card -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="h-48 bg-amber-100 flex items-center justify-center">
+              <svg class="w-24 h-24 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-amber-900 mb-2">Marcas Reconocidas</h3>
+              <p class="text-gray-600 mb-4">
+                Conoce las marcas más prestigiosas de cuchillos japoneses, sus historias y lo que hace que cada fabricante sea único en su enfoque y tradición.
+              </p>
+              <a href="brands.html" class="inline-block px-4 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors">
+                Explorar marcas
+              </a>
+            </div>
+          </div>
+
+          <!-- Maintenance Card -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="h-48 bg-amber-100 flex items-center justify-center">
+              <svg class="w-24 h-24 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-amber-900 mb-2">Mantenimiento</h3>
+              <p class="text-gray-600 mb-4">
+                Aprende a cuidar correctamente tus cuchillos japoneses, desde el afilado adecuado hasta las técnicas de almacenamiento para preservar su filo y durabilidad.
+              </p>
+              <a href="maintenance.html" class="inline-block px-4 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors">
+                Guía de mantenimiento
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Section -->
+        <div class="bg-amber-50 rounded-xl p-8 mb-16">
+          <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-amber-900 mb-6">¿Por qué elegir cuchillos japoneses?</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 class="text-xl font-bold text-amber-800 mb-3">Precisión incomparable</h3>
+                <p class="text-gray-700 mb-6">
+                  Los cuchillos japoneses están diseñados para ofrecer cortes precisos y limpios, con hojas más delgadas y afiladas que sus contrapartes occidentales. Esto permite un control excepcional y resultados profesionales en cada corte.
+                </p>
+                
+                <h3 class="text-xl font-bold text-amber-800 mb-3">Materiales superiores</h3>
+                <p class="text-gray-700">
+                  Fabricados con aceros de alta calidad, como el acero VG-10 o el tradicional acero de Damasco, estos cuchillos ofrecen una dureza y retención del filo excepcionales, lo que se traduce en un rendimiento duradero.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-amber-800 mb-3">Diseño especializado</h3>
+                <p class="text-gray-700 mb-6">
+                  Cada tipo de cuchillo japonés está meticulosamente diseñado para una tarea específica, lo que permite optimizar el rendimiento para diferentes técnicas de corte y tipos de alimentos.
+                </p>
+                
+                <h3 class="text-xl font-bold text-amber-800 mb-3">Artesanía tradicional</h3>
+                <p class="text-gray-700">
+                  Muchos cuchillos japoneses siguen siendo fabricados por artesanos que utilizan técnicas transmitidas durante generaciones, combinando métodos tradicionales con innovaciones modernas para crear herramientas excepcionales.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center max-w-3xl mx-auto">
+          <h2 class="text-3xl font-bold text-amber-900 mb-4">Comienza tu viaje</h2>
+          <p class="text-xl text-gray-700 mb-8">
+            Explora nuestra guía completa de cuchillos japoneses y descubre el cuchillo perfecto para elevar tu experiencia culinaria
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="knives.html" class="px-6 py-3 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors">
+              Ver tipos de cuchillos
+            </a>
+            <a href="maintenance.html" class="px-6 py-3 bg-white border border-amber-500 text-amber-500 rounded-lg hover:bg-amber-50 transition-colors">
+              Guía de mantenimiento
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-col md:flex-row justify-between">
+            <div class="mb-8 md:mb-0">
+              <div class="flex items-center space-x-3 mb-4">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+                <span class="text-xl font-bold">TastyPages</span>
+              </div>
+              <p class="text-gray-400 max-w-md">
+                Tu guía completa para explorar el mundo de la gastronomía, desde recetas hasta herramientas profesionales.
+              </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+              <div>
+                <h3 class="text-lg font-semibold mb-4">Secciones</h3>
+                <ul class="space-y-2">
+                  <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors">Recetas</a></li>
+                  <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Cuchillos</a></li>
+                  <li><a href="knives.html" class="text-gray-400 hover:text-white transition-colors">Tipos de cuchillos</a></li>
+                  <li><a href="brands.html" class="text-gray-400 hover:text-white transition-colors">Marcas</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold mb-4">Recursos</h3>
+                <ul class="space-y-2">
+                  <li><a href="maintenance.html" class="text-gray-400 hover:text-white transition-colors">Mantenimiento</a></li>
+                  <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                  <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tutoriales</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                <ul class="space-y-2">
+                  <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Términos de uso</a></li>
+                  <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Política de privacidad</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+            <p>© 2025 TastyPages. Todos los derechos reservados.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            isScrolled: false,
+            isMenuOpen: false,
+          };
+        },
+        methods: {
+          handleScroll() {
+            this.isScrolled = window.scrollY > 10;
+          },
+        },
+        mounted() {
+          window.addEventListener("scroll", this.handleScroll);
+        },
+        unmounted() {
+          window.removeEventListener("scroll", this.handleScroll);
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html> 

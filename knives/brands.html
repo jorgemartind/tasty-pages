@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Marcas de Cuchillos Japoneses - TastyPages</title>
+
+    <!-- PWA Meta Tags -->
+    <meta name="application-name" content="TastyPages">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="TastyPages">
+    
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="../favicons/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../favicons/favicon-96x96.png">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="../favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-icon-180x180.png">
+    
+    <!-- Android Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="../favicons/android-icon-192x192.png">
+    <link rel="manifest" href="../favicons/manifest.json">
+    
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-config" content="../favicons/browserconfig.xml">
+    <meta name="msapplication-TileColor" content="#f59e0b">
+    <meta name="msapplication-TileImage" content="../favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#f59e0b">
+
+    <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body class="bg-gray-50">
+    <div id="app">
+      <!-- Enhanced Header with Hero Section -->
+      <header class="gradient-background text-white">
+        <!-- Fixed Navigation Bar -->
+        <nav
+          class="fixed top-0 left-0 right-0 z-50 gradient-background nav-shadow"
+          :class="{ 'scrolled': isScrolled }"
+        >
+          <!-- Navigation Content -->
+          <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+              <div class="flex items-center space-x-3">
+                <!-- Logo and Brand -->
+                <svg
+                  class="w-10 h-10"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  ></path>
+                </svg>
+                <a href="../index.html" class="text-2xl font-bold">TastyPages</a>
+              </div>
+
+              <!-- Mobile Menu Button -->
+              <button 
+                @click="isMenuOpen = !isMenuOpen"
+                class="md:hidden text-white focus:outline-none"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    v-if="!isMenuOpen"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                  <path
+                    v-else
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Desktop Navigation Links -->
+              <div class="hidden md:flex items-center space-x-6">
+                <a 
+                  href="../index.html" 
+                  class="text-white/70 hover:text-white transition-colors px-3 py-1"
+                >
+                  Recetas
+                </a>
+                <a 
+                  href="index.html" 
+                  class="text-white/70 hover:text-white transition-colors px-3 py-1"
+                >
+                  Cuchillos
+                </a>
+                <a 
+                  href="knives.html" 
+                  class="text-white/70 hover:text-white transition-colors px-3 py-1"
+                >
+                  Tipos
+                </a>
+                <a 
+                  href="brands.html" 
+                  class="text-white border-b-2 border-white px-3 py-1"
+                >
+                  Marcas
+                </a>
+                <a 
+                  href="maintenance.html" 
+                  class="text-white/70 hover:text-white transition-colors px-3 py-1"
+                >
+                  Mantenimiento
+                </a>
+              </div>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div 
+              v-show="isMenuOpen"
+              class="md:hidden py-4 border-t border-white/10"
+            >
+              <div class="flex flex-col space-y-3">
+                <a 
+                  href="../index.html" 
+                  class="text-white/70 hover:text-white transition-colors px-3 py-1"
+                >
+                  Recetas
+                </a>
+                <a 
+                  href="index.html" 
+                  class="text-white/70 hover:text-white transition-colors px-3 py-1"
+                >
+                  Cuchillos
+                </a>
+                <a 
+                  href="knives.html" 
+                  class="text-white/70 hover:text-white transition-colors px-3 py-1"
+                >
+                  Tipos
+                </a>
+                <a 
+                  href="brands.html" 
+                  class="text-white border-b-2 border-white px-3 py-1"
+                >
+                  Marcas
+                </a>
+                <a 
+                  href="maintenance.html" 
+                  class="text-white/70 hover:text-white transition-colors px-3 py-1"
+                >
+                  Mantenimiento
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Hero Section with fixed nav padding -->
+        <div class="pt-20">
+          <div class="container mx-auto px-4">
+            <div class="py-12 text-center">
+              <!-- Hero Content -->
+              <h1 class="text-5xl font-bold mb-4 text-white">
+                Marcas de Cuchillos Japoneses
+              </h1>
+              <p class="text-xl text-amber-50 mb-8 max-w-3xl mx-auto">
+                Descubre las marcas más prestigiosas y sus tradiciones centenarias en la fabricación de cuchillos
+              </p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <div class="container mx-auto px-4 py-12">
+        <!-- Introduction Section -->
+        <div class="max-w-4xl mx-auto mb-16">
+          <h2 class="text-3xl font-bold text-amber-900 mb-6">Tradición e Innovación</h2>
+          <div class="prose prose-lg max-w-none text-gray-700">
+            <p class="mb-4">
+              Las marcas japonesas de cuchillos son reconocidas mundialmente por su excepcional calidad, precisión y artesanía. Muchas de estas empresas tienen raíces que se remontan a siglos atrás, cuando los herreros japoneses aplicaban sus conocimientos de fabricación de espadas samurái a la creación de herramientas culinarias.
+            </p>
+            <p>
+              Hoy en día, estas marcas combinan métodos tradicionales con tecnologías modernas para crear cuchillos que son apreciados tanto por chefs profesionales como por entusiastas culinarios en todo el mundo. Cada marca tiene su propio enfoque, filosofía y especialidades que la distinguen en el competitivo mercado de cuchillos de alta gama.
+            </p>
+          </div>
+        </div>
+
+        <!-- Brands Section -->
+        <div class="space-y-16 max-w-5xl mx-auto">
+          <!-- Brand 1: Shun -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="md:flex">
+              <div class="md:w-1/3 bg-amber-50 flex items-center justify-center p-8">
+                <div class="text-center">
+                  <h3 class="text-3xl font-bold text-amber-900">Shun</h3>
+                  <p class="text-amber-700 mt-2">Seki, Japón</p>
+                  <div class="w-16 h-1 bg-amber-500 mx-auto my-4"></div>
+                  <p class="text-amber-800 font-medium">Fundada en 1908</p>
+                  <a href="https://shun.kaiusa.com/" target="_blank" class="inline-block mt-3 text-amber-600 hover:text-amber-800 transition-colors">
+                    <span>Sitio web oficial</span>
+                    <svg class="w-4 h-4 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="p-8 md:w-2/3">
+                <div class="uppercase tracking-wide text-sm text-amber-500 font-semibold mb-1">Prestigio Internacional</div>
+                <p class="text-gray-700 mb-4">
+                  Shun es una de las marcas japonesas más reconocidas internacionalmente, perteneciente a la empresa KAI Group. Sus cuchillos combinan técnicas tradicionales con tecnología moderna, resultando en piezas de excepcional calidad y belleza.
+                </p>
+                <p class="text-gray-700 mb-4">
+                  Conocidos por sus hojas de acero de Damasco con núcleo VG-MAX, los cuchillos Shun ofrecen un rendimiento superior y un aspecto distintivo con sus patrones ondulados. La marca se ha ganado numerosos premios de diseño y es favorita entre chefs profesionales de todo el mundo.
+                </p>
+                <div class="mt-6">
+                  <h4 class="font-bold text-amber-900 mb-2">Características distintivas:</h4>
+                  <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>Acero VG-MAX con capas de acero de Damasco</li>
+                    <li>Mangos ergonómicos de Pakkawood</li>
+                    <li>Excelente equilibrio y acabado</li>
+                    <li>Amplia variedad de series para diferentes preferencias</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand 2: Masamoto -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="md:flex">
+              <div class="md:w-1/3 bg-amber-50 flex items-center justify-center p-8">
+                <div class="text-center">
+                  <h3 class="text-3xl font-bold text-amber-900">Masamoto</h3>
+                  <p class="text-amber-700 mt-2">Tokio, Japón</p>
+                  <div class="w-16 h-1 bg-amber-500 mx-auto my-4"></div>
+                  <p class="text-amber-800 font-medium">Fundada en 1845</p>
+                  <a href="https://www.masamoto-sohonten.co.jp/" target="_blank" class="inline-block mt-3 text-amber-600 hover:text-amber-800 transition-colors">
+                    <span>Sitio web oficial</span>
+                    <svg class="w-4 h-4 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="p-8 md:w-2/3">
+                <div class="uppercase tracking-wide text-sm text-amber-500 font-semibold mb-1">Tradición Familiar</div>
+                <p class="text-gray-700 mb-4">
+                  Masamoto es una de las marcas más antiguas y respetadas en Japón, dirigida por la misma familia durante generaciones. Su fundador, Minosuke Matsuzawa, estableció la empresa con el objetivo de crear los mejores cuchillos de cocina del mundo, una filosofía que sigue vigente hoy.
+                </p>
+                <p class="text-gray-700 mb-4">
+                  Los cuchillos Masamoto son conocidos por su excepcional rendimiento de corte y su diseño tradicional. La marca es especialmente valorada por los chefs de sushi y kaiseki, que aprecian la precisión y el equilibrio perfecto de sus hojas.
+                </p>
+                <div class="mt-6">
+                  <h4 class="font-bold text-amber-900 mb-2">Características distintivas:</h4>
+                  <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>Aceros de alta calidad seleccionados meticulosamente</li>
+                    <li>Diseño tradicional japonés</li>
+                    <li>Fabricación artesanal con mínima mecanización</li>
+                    <li>Preferidos por chefs tradicionales japoneses</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand 3: Takeda -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="md:flex">
+              <div class="md:w-1/3 bg-amber-50 flex items-center justify-center p-8">
+                <div class="text-center">
+                  <h3 class="text-3xl font-bold text-amber-900">Takeda</h3>
+                  <p class="text-amber-700 mt-2">Niigata, Japón</p>
+                  <div class="w-16 h-1 bg-amber-500 mx-auto my-4"></div>
+                  <p class="text-amber-800 font-medium">Tradición desde el período Meiji</p>
+                  <a href="https://www.takedariver.com/" target="_blank" class="inline-block mt-3 text-amber-600 hover:text-amber-800 transition-colors">
+                    <span>Sitio web oficial</span>
+                    <svg class="w-4 h-4 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="p-8 md:w-2/3">
+                <div class="uppercase tracking-wide text-sm text-amber-500 font-semibold mb-1">Artesanía Única</div>
+                <p class="text-gray-700 mb-4">
+                  Takeda Hamono es conocida por sus cuchillos distintivos con un estilo rústico y artesanal. Shosui Takeda, el actual maestro herrero, continúa la tradición familiar utilizando técnicas ancestrales combinadas con su visión personal.
+                </p>
+                <p class="text-gray-700 mb-4">
+                  Los cuchillos Takeda son reconocibles al instante por sus hojas extremadamente delgadas y su acabado kurouchi (negro forjado). A pesar de su apariencia rústica, son increíblemente afilados y ofrecen un rendimiento excepcional, especialmente para cortar vegetales.
+                </p>
+                <div class="mt-6">
+                  <h4 class="font-bold text-amber-900 mb-2">Características distintivas:</h4>
+                  <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>Acero Aogami Super (acero azul super)</li>
+                    <li>Hojas extremadamente delgadas y ligeras</li>
+                    <li>Acabado kurouchi tradicional</li>
+                    <li>Diseño distintivo con perfil alto</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand 4: Konosuke -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="md:flex">
+              <div class="md:w-1/3 bg-amber-50 flex items-center justify-center p-8">
+                <div class="text-center">
+                  <h3 class="text-3xl font-bold text-amber-900">Konosuke</h3>
+                  <p class="text-amber-700 mt-2">Sakai, Osaka, Japón</p>
+                  <div class="w-16 h-1 bg-amber-500 mx-auto my-4"></div>
+                  <p class="text-amber-800 font-medium">Fundada en 1935</p>
+                  <a href="https://www.konosuke-sakai.com/" target="_blank" class="inline-block mt-3 text-amber-600 hover:text-amber-800 transition-colors">
+                    <span>Sitio web oficial</span>
+                    <svg class="w-4 h-4 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="p-8 md:w-2/3">
+                <div class="uppercase tracking-wide text-sm text-amber-500 font-semibold mb-1">Innovación Constante</div>
+                <p class="text-gray-700 mb-4">
+                  Konosuke es una marca relativamente joven que ha ganado rápidamente reconocimiento por sus cuchillos ligeros y de alto rendimiento. Ubicada en Sakai, una ciudad con más de 600 años de tradición en la fabricación de cuchillos, Konosuke combina esta herencia con un enfoque moderno.
+                </p>
+                <p class="text-gray-700 mb-4">
+                  La marca es especialmente conocida por sus gyutos y petty knives extremadamente delgados y ligeros, que ofrecen una precisión excepcional. Konosuke trabaja con varios herreros talentosos para crear diferentes líneas de cuchillos, cada una con características únicas.
+                </p>
+                <div class="mt-6">
+                  <h4 class="font-bold text-amber-900 mb-2">Características distintivas:</h4>
+                  <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>Hojas extremadamente delgadas y ligeras</li>
+                    <li>Variedad de aceros premium (HD2, GS+, Ginsan)</li>
+                    <li>Excelente equilibrio y maniobrabilidad</li>
+                    <li>Acabados refinados y elegantes</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand 5: Masakage -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="md:flex">
+              <div class="md:w-1/3 bg-amber-50 flex items-center justify-center p-8">
+                <div class="text-center">
+                  <h3 class="text-3xl font-bold text-amber-900">Masakage</h3>
+                  <p class="text-amber-700 mt-2">Takefu, Japón</p>
+                  <div class="w-16 h-1 bg-amber-500 mx-auto my-4"></div>
+                  <p class="text-amber-800 font-medium">Fundada en 2007</p>
+                  <a href="https://masakageknives.com/" target="_blank" class="inline-block mt-3 text-amber-600 hover:text-amber-800 transition-colors">
+                    <span>Sitio web oficial</span>
+                    <svg class="w-4 h-4 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="p-8 md:w-2/3">
+                <div class="uppercase tracking-wide text-sm text-amber-500 font-semibold mb-1">Colaboración Artesanal</div>
+                <p class="text-gray-700 mb-4">
+                  Masakage es una marca moderna fundada por Takayuki Shibata, que reúne a un grupo de talentosos herreros de la región de Takefu. Cada línea de cuchillos Masakage es creada por un herrero diferente, lo que permite una diversidad de estilos y características bajo una misma marca.
+                </p>
+                <p class="text-gray-700 mb-4">
+                  Los cuchillos Masakage son conocidos por su excelente relación calidad-precio y su combinación de estética tradicional con rendimiento moderno. La marca ha ganado popularidad rápidamente entre chefs y entusiastas culinarios en todo el mundo.
+                </p>
+                <div class="mt-6">
+                  <h4 class="font-bold text-amber-900 mb-2">Características distintivas:</h4>
+                  <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>Diversas líneas con estilos únicos (Koishi, Yuki, Mizu, etc.)</li>
+                    <li>Combinación de aceros tradicionales y modernos</li>
+                    <li>Excelente relación calidad-precio</li>
+                    <li>Diseños que equilibran tradición y funcionalidad moderna</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand 6: KAI -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="md:flex">
+              <div class="md:w-1/3 bg-amber-50 flex items-center justify-center p-8">
+                <div class="text-center">
+                  <h3 class="text-3xl font-bold text-amber-900">KAI</h3>
+                  <p class="text-amber-700 mt-2">Seki, Japón</p>
+                  <div class="w-16 h-1 bg-amber-500 mx-auto my-4"></div>
+                  <p class="text-amber-800 font-medium">Fundada en 1908</p>
+                  <a href="https://www.kai-group.com/global/en/" target="_blank" class="inline-block mt-3 text-amber-600 hover:text-amber-800 transition-colors">
+                    <span>Sitio web oficial</span>
+                    <svg class="w-4 h-4 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="p-8 md:w-2/3">
+                <div class="uppercase tracking-wide text-sm text-amber-500 font-semibold mb-1">Empresa Matriz de Shun</div>
+                <p class="text-gray-700 mb-4">
+                  KAI Group es una de las empresas de cuchillería más grandes de Japón, con una historia que se remonta a más de un siglo. La compañía comenzó como un pequeño taller de cuchillos de bolsillo y navajas en la ciudad de Seki, conocida como la capital japonesa de la cuchillería.
+                </p>
+                <p class="text-gray-700 mb-4">
+                  Aunque es conocida internacionalmente por su marca Shun de cuchillos de cocina premium, KAI fabrica una amplia gama de productos para el hogar y profesionales, desde tijeras y navajas hasta instrumental médico. La filosofía de KAI se centra en combinar la artesanía tradicional japonesa con tecnología moderna.
+                </p>
+                <div class="mt-6">
+                  <h4 class="font-bold text-amber-900 mb-2">Características distintivas:</h4>
+                  <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>Amplia variedad de líneas de productos para diferentes segmentos</li>
+                    <li>Innovación constante en materiales y diseños</li>
+                    <li>Combina producción industrial con técnicas artesanales</li>
+                    <li>Presencia global con adaptación a mercados locales</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand 7: Global -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="md:flex">
+              <div class="md:w-1/3 bg-amber-50 flex items-center justify-center p-8">
+                <div class="text-center">
+                  <h3 class="text-3xl font-bold text-amber-900">Global</h3>
+                  <p class="text-amber-700 mt-2">Niigata, Japón</p>
+                  <div class="w-16 h-1 bg-amber-500 mx-auto my-4"></div>
+                  <p class="text-amber-800 font-medium">Creada en 1985</p>
+                  <a href="https://global-knife.com/" target="_blank" class="inline-block mt-3 text-amber-600 hover:text-amber-800 transition-colors">
+                    <span>Sitio web oficial</span>
+                    <svg class="w-4 h-4 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="p-8 md:w-2/3">
+                <div class="uppercase tracking-wide text-sm text-amber-500 font-semibold mb-1">Diseño Revolucionario</div>
+                <p class="text-gray-700 mb-4">
+                  Global revolucionó el mundo de los cuchillos de cocina con su diseño minimalista y totalmente de acero inoxidable. Creados por el diseñador Komin Yamada para la empresa Yoshikin, los cuchillos Global se han convertido en un icono de la fusión entre funcionalidad japonesa y estética moderna.
+                </p>
+                <p class="text-gray-700 mb-4">
+                  Cada cuchillo Global está fabricado de una sola pieza de acero inoxidable CROMOVA 18, con un mango hueco rellenado con arena para proporcionar el equilibrio perfecto. Su distintivo patrón de puntos en el mango no solo es estético, sino que proporciona un agarre seguro incluso con las manos húmedas.
+                </p>
+                <div class="mt-6">
+                  <h4 class="font-bold text-amber-900 mb-2">Características distintivas:</h4>
+                  <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>Construcción monobloque de acero inoxidable CROMOVA 18</li>
+                    <li>Diseño ligero y perfectamente equilibrado</li>
+                    <li>Bordes extremadamente afilados con ángulo de 15°</li>
+                    <li>Acabado mate que evita reflejos y oculta arañazos</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand 8: Miyabi -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="md:flex">
+              <div class="md:w-1/3 bg-amber-50 flex items-center justify-center p-8">
+                <div class="text-center">
+                  <h3 class="text-3xl font-bold text-amber-900">Miyabi</h3>
+                  <p class="text-amber-700 mt-2">Seki, Japón</p>
+                  <div class="w-16 h-1 bg-amber-500 mx-auto my-4"></div>
+                  <p class="text-amber-800 font-medium">Lanzada en 2004</p>
+                  <a href="https://www.miyabi-knives.com/" target="_blank" class="inline-block mt-3 text-amber-600 hover:text-amber-800 transition-colors">
+                    <span>Sitio web oficial</span>
+                    <svg class="w-4 h-4 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="p-8 md:w-2/3">
+                <div class="uppercase tracking-wide text-sm text-amber-500 font-semibold mb-1">Elegancia Japonesa, Ingeniería Alemana</div>
+                <p class="text-gray-700 mb-4">
+                  Miyabi, perteneciente al grupo alemán Zwilling J.A. Henckels, representa una fusión perfecta entre la tradición japonesa y la precisión alemana. La marca fue creada para ofrecer cuchillos japoneses auténticos producidos con los más altos estándares de calidad y consistencia.
+                </p>
+                <p class="text-gray-700 mb-4">
+                  Fabricados en Seki, Japón, los cuchillos Miyabi destacan por su excepcional estética y rendimiento. Cada línea presenta diferentes tipos de acero y acabados, desde el acero de Damasco decorativo hasta los núcleos de acero MC66 y SG2 de alto rendimiento.
+                </p>
+                <div class="mt-6">
+                  <h4 class="font-bold text-amber-900 mb-2">Características distintivas:</h4>
+                  <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>Técnica Honbazuke de afilado en tres pasos</li>
+                    <li>Aceros premium con tratamientos térmicos avanzados</li>
+                    <li>Diversos acabados y estilos de mango (Karelian, D-shape, Octagonal)</li>
+                    <li>Control de calidad riguroso y consistente</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand 9: Tojiro -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="md:flex">
+              <div class="md:w-1/3 bg-amber-50 flex items-center justify-center p-8">
+                <div class="text-center">
+                  <h3 class="text-3xl font-bold text-amber-900">Tojiro</h3>
+                  <p class="text-amber-700 mt-2">Tsubame, Niigata, Japón</p>
+                  <div class="w-16 h-1 bg-amber-500 mx-auto my-4"></div>
+                  <p class="text-amber-800 font-medium">Fundada en 1953</p>
+                  <a href="https://tojiro-japan.com/" target="_blank" class="inline-block mt-3 text-amber-600 hover:text-amber-800 transition-colors">
+                    <span>Sitio web oficial</span>
+                    <svg class="w-4 h-4 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="p-8 md:w-2/3">
+                <div class="uppercase tracking-wide text-sm text-amber-500 font-semibold mb-1">Excelente Relación Calidad-Precio</div>
+                <p class="text-gray-700 mb-4">
+                  Tojiro es ampliamente reconocida como una de las mejores opciones para quienes buscan cuchillos japoneses de alta calidad a precios accesibles. Fundada por Subaru Fujitani como una fábrica de productos metálicos, la empresa se centró en los cuchillos de cocina y se ha ganado una reputación envidiable.
+                </p>
+                <p class="text-gray-700 mb-4">
+                  La serie DP de Tojiro, con su núcleo de acero VG-10 revestido con acero inoxidable, se ha convertido en un estándar en la industria y es frecuentemente recomendada como el primer cuchillo japonés de calidad para chefs principiantes y entusiastas culinarios.
+                </p>
+                <div class="mt-6">
+                  <h4 class="font-bold text-amber-900 mb-2">Características distintivas:</h4>
+                  <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>Excelente rendimiento a precios competitivos</li>
+                    <li>Amplia variedad de series para diferentes necesidades y presupuestos</li>
+                    <li>Construcción simple pero efectiva</li>
+                    <li>Muy popular entre chefs profesionales y entusiastas</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand 10: Sakai Takayuki -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="md:flex">
+              <div class="md:w-1/3 bg-amber-50 flex items-center justify-center p-8">
+                <div class="text-center">
+                  <h3 class="text-3xl font-bold text-amber-900">Sakai Takayuki</h3>
+                  <p class="text-amber-700 mt-2">Sakai, Osaka, Japón</p>
+                  <div class="w-16 h-1 bg-amber-500 mx-auto my-4"></div>
+                  <p class="text-amber-800 font-medium">Historia de más de 600 años</p>
+                  <a href="https://sakaitakayuki.com/" target="_blank" class="inline-block mt-3 text-amber-600 hover:text-amber-800 transition-colors">
+                    <span>Sitio web oficial</span>
+                    <svg class="w-4 h-4 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="p-8 md:w-2/3">
+                <div class="uppercase tracking-wide text-sm text-amber-500 font-semibold mb-1">Tradición de Sakai</div>
+                <p class="text-gray-700 mb-4">
+                  Sakai Takayuki es uno de los principales fabricantes de la región de Sakai, un área con más de 600 años de historia en la fabricación de cuchillos. La empresa trabaja con numerosos herreros y artesanos tradicionales para producir una amplia variedad de cuchillos japoneses.
+                </p>
+                <p class="text-gray-700 mb-4">
+                  Lo que distingue a Sakai Takayuki es su capacidad para ofrecer numerosas líneas de cuchillos que representan diferentes estilos y tradiciones japonesas, desde cuchillos forjados a mano con acero Yasuki hasta modernas piezas de acero inoxidable. Su catálogo incluye desde herramientas profesionales para sushi hasta cuchillos occidentales con influencia japonesa.
+                </p>
+                <div class="mt-6">
+                  <h4 class="font-bold text-amber-900 mb-2">Características distintivas:</h4>
+                  <ul class="list-disc pl-5 text-gray-700 space-y-1">
+                    <li>Enorme variedad de líneas y estilos</li>
+                    <li>Colaboración con numerosos artesanos tradicionales</li>
+                    <li>Opciones en todos los rangos de precio</li>
+                    <li>Especialistas en cuchillos tradicionales para sushi y sashimi</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center max-w-3xl mx-auto mt-16">
+          <h2 class="text-3xl font-bold text-amber-900 mb-4">Explora Más Sobre Cuchillos Japoneses</h2>
+          <p class="text-xl text-gray-700 mb-8">
+            Descubre los diferentes tipos de cuchillos y aprende a mantenerlos correctamente para aprovechar al máximo tu inversión
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="knives.html" class="px-6 py-3 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors">
+              Ver tipos de cuchillos
+            </a>
+            <a href="maintenance.html" class="px-6 py-3 bg-white border border-amber-500 text-amber-500 rounded-lg hover:bg-amber-50 transition-colors">
+              Guía de mantenimiento
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="bg-gray-800 text-white py-12 mt-16">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-col md:flex-row justify-between">
+            <div class="mb-8 md:mb-0">
+              <div class="flex items-center space-x-3 mb-4">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+                <span class="text-xl font-bold">TastyPages</span>
+              </div>
+              <p class="text-gray-400 max-w-md">
+                Tu guía completa para explorar el mundo de la gastronomía, desde recetas hasta herramientas profesionales.
+              </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+              <div>
+                <h3 class="text-lg font-semibold mb-4">Secciones</h3>
+                <ul class="space-y-2">
+                  <li><a href="../index.html" class="text-gray-400 hover:text-white transition-colors">Recetas</a></li>
+                  <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Cuchillos</a></li>
+                  <li><a href="knives.html" class="text-gray-400 hover:text-white transition-colors">Tipos de cuchillos</a></li>
+                  <li><a href="brands.html" class="text-gray-400 hover:text-white transition-colors">Marcas</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold mb-4">Recursos</h3>
+                <ul class="space-y-2">
+                  <li><a href="maintenance.html" class="text-gray-400 hover:text-white transition-colors">Mantenimiento</a></li>
+                  <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                  <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tutoriales</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                <ul class="space-y-2">
+                  <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Términos de uso</a></li>
+                  <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Política de privacidad</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+            <p>© 2025 TastyPages. Todos los derechos reservados.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            isScrolled: false,
+            isMenuOpen: false,
+          };
+        },
+        methods: {
+          handleScroll() {
+            this.isScrolled = window.scrollY > 10;
+          },
+        },
+        mounted() {
+          window.addEventListener("scroll", this.handleScroll);
+        },
+        unmounted() {
+          window.removeEventListener("scroll", this.handleScroll);
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html> 
